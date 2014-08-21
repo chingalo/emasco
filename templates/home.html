@@ -1,30 +1,38 @@
 {% extends "base.html" %}
 {% block pageContainer %}
 
+
 <!--- navigation------>
-<nav class="navbar navbar-default " role="navigation">
+
+<nav class="navbar  navbar-default" role="navigation">
 	<div class="container-fluid">
 		<!-- website brand -->
+		<span class = "navbar-brand">      </span>
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigationItems">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"  data-target="#navigationItems">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Emasco</a>
+			<span class = "navbar-brand">Emasco</span>
+			<span class = "navbar-brand"></span>
+			<span class = "navbar-brand"></span>
+			<span class = "navbar-brand"></span>
+			<span class = "navbar-brand"></span>
+			
 		</div>
 		
 		<!-- nav, collapse in small deveices --->
-		<div class="collapse navbar-collapse" id="navigationItems">
+		<div class="collapse navbar-collapse" id="navigationItems" >
 			<ul class="nav navbar-nav">
 				<li>
 					<a href = "#">Home</a>
-				</li>				
-				<li>
-					<a href = "#">Our Works</a>
 				</li>
 				<li>
 					<a href = "#">Services</a>
+				</li>			
+				<li>
+					<a href = "#">Our Portfolio</a>
 				</li>
 				<li>
 					<a href = "#">Mission And Vision</a>
@@ -35,11 +43,32 @@
 				<li>
 					<a href = "#">Contact Us</a>
 				</li>			
-			</ul>			
+			</ul>
+			
+			<form class="navbar-form navbar-right form-inline">
+				{% csrf_token %}
+				<div class = "form-group">
+					<input type = "text" class = "form-control" placeholder = "Enter Username"/>
+				</div>
+				<div class = "form-group">
+					<input type = "password" class = "form-control" placeholder = "Enter e-mail"/>
+				</div>
+			</form>			
 		</div>
+		
 	</div>
 </nav>
 
+
+<!---- slides and aside bar ----->
+<div class = "fluid-container">
+	<div class = "row">
+		<div class = "col-md-8">
+			slides
+		</div>
+		<div class = "col-md-4">aside navigations</div>
+	</div>
+</div>
 
 
 {% endblock %}

@@ -20,3 +20,38 @@ def home(request):
 	
 	context = {}
 	return render(request,'home.html',context)
+
+
+#services offered by emasco	
+def services(request):
+	
+	context = {}
+	return render(request,'services.html',context)	
+
+
+#emasco's portfolio
+def portfolio(request):
+	
+	context = {}
+	return render(request,'portfolio.html',context)
+
+
+#emasco mission and vission
+def missionAndVision(request):
+	
+	context = {}
+	return render(request,'missionandvision.html',context)
+
+
+#emasco core team	
+def coreTeam(request):
+	
+	context = {}
+	return render(request,'coreteam.html',context)	
+
+
+#emasco contact us page
+def contactUs(request):
+	
+	context = {}
+	return render(request,'contactus.html',context)
