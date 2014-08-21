@@ -121,10 +121,10 @@ ALLOWED_HOSTS = ['*']
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_IMAP_HOST = 'imap.gmail.com'
 EMAIL_PORT = "587"
-EMAIL_HOST_USER = 'mobiletzdealer@gmail.com'
-EMAIL_HOST_PASSWORD = '0687168637'
+EMAIL_HOST_USER = 'emascocompany@gmail.com'
+EMAIL_HOST_PASSWORD = 'chingalo'
 EMAIL_USE_TLS = True
-EMAIL_SENDER = 'mobiletzdealer@gmail.com'
+EMAIL_SENDER = 'emascocompany@gmail.com'
 EMAIL_SSL = True
 
 
