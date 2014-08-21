@@ -19,4 +19,4 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 def home(request):
 	
 	context = {}
-	return render(request,'base.html',context)
+	return render(request,'home.html',context)
