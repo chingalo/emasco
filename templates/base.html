@@ -11,12 +11,81 @@
 
   </head>
   <body style = "max-width:90%;margin:auto;margin-top:1%;">
+	  
+	  
+	  
 	<!---- brands at top of site ----->
 	<div class = "container-fluid">
 		still comming, brand name, images and other ........
-	</div>  
-  {% block pageContainer %}
-  {% endblock %}
+	</div> 
+	
+	
+	
+	<!--- navigation------>
+
+	<nav class="navbar  navbar-default" role="navigation">
+		<div class="container-fluid">
+			<!-- website brand -->
+			<span class = "navbar-brand">      </span>
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"  data-target="#navigationItems">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<span class = "navbar-brand">Emasco</span>
+				<span class = "navbar-brand"></span>
+				<span class = "navbar-brand"></span>
+				<span class = "navbar-brand"></span>
+				<span class = "navbar-brand"></span>
+				
+			</div>
+			
+			<!-- nav, collapse in small deveices --->
+			<div class="collapse navbar-collapse" id="navigationItems" >
+				<ul class="nav navbar-nav">
+					<li>
+						<a href = "{% url 'home' %}" >Home</a>
+					</li>
+					<li>
+						<a href = "{% url 'services' %}">Services</a>
+					</li>			
+					<li>
+						<a href = "{% url 'portfolio' %}">Our Portfolio</a>
+					</li>
+					<li>
+						<a href = "{% url 'missionAndVision' %}">Mission And Vision</a>
+					</li>
+					<li>
+						<a href = "{% url 'coreTeam' %}">Our Core Team</a>
+					</li>
+					<li>
+						<a href = "{% url 'contactUs' %}">Contact Us</a>
+					</li>			
+				</ul>
+				
+				<form class="navbar-form navbar-right form-inline">
+					{% csrf_token %}
+					<div class = "form-group">
+						<input type = "text" class = "form-control" placeholder = "Enter Username"/>
+					</div>
+					<div class = "form-group">
+						<input type = "password" class = "form-control" placeholder = "Enter e-mail"/>
+					</div>
+				</form>			
+			</div>
+			
+		</div>
+	</nav> 
+	
+	
+	
+	<!--- contents of the emasco pages---->
+  {% block pageContainer %}  {% endblock %}
+	
+	
+	
+	
 	
 	<!--  footer of the site --->
 	<div class = "container-fluid">
