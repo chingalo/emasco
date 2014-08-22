@@ -12,7 +12,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.enums import TA_CENTER
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-
+from emascouser.models import *
 
 
 #home pagae for emasco
@@ -22,6 +22,8 @@ def home(request):
 	return render(request,'home.html',context)
 
 
+
+
 #services offered by emasco	
 def services(request):
 	
@@ -29,11 +31,16 @@ def services(request):
 	return render(request,'services.html',context)	
 
 
+
+
 #emasco's portfolio
-def portfolio(request):
+def portfolio(request):	
+	
 	
 	context = {}
 	return render(request,'portfolio.html',context)
+
+
 
 
 #emasco mission and vission
@@ -43,10 +50,13 @@ def missionAndVision(request):
 	return render(request,'missionandvision.html',context)
 
 
+
+
 #emasco core team	
 def coreTeam(request):
+	coreteams = User.objects.all()
 	
-	context = {}
+	context = {'coreteams':coreteams}
 	return render(request,'coreteam.html',context)	
 
 
