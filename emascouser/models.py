@@ -8,6 +8,7 @@ class User(models.Model):
 	mobile_number = models.CharField(max_length = 200)
 	gender_selection = (('male','male'),('female','female'))
 	gender = models.CharField(max_length=20, choices = gender_selection , default = 'male')
+	pic = models.CharField(max_length=20, default = 'no')
 	user_history = models.TextField(max_length = 20000, blank = True)
 	username = models.CharField(max_length = 200)
 	password = models.CharField(max_length = 200)
