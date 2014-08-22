@@ -8,9 +8,71 @@
 </ol>
 
 <div class = "container-fluid"  style = "min-height:200px;">
+	
+	
+	<!-- images for a given member---- -->
 	<div class = "row">
-		<p>single member : {{singleMember}}</p>
+		<hr>
+		<div class = "col-md-2 col-sm-4 col-lg-2 col-xs-4">
+			{% if singleMember.username == "joseph" and singleMember.pic = "yes" %}
+			<img src = "{{STATIC_URL}}img/joseph.png" alt="" style="height: 100px; width:100%; border-radius:10px;" class = "visible-xs">
+			<img src = "{{STATIC_URL}}img/joseph.png" alt="" style="height: 150px;width:100%; border-radius:10px;" class = "hidden-xs" >
+			{% else %}
+			<!--- check for images of other users ---->
+			
+			
+			<img src = "{{STATIC_URL}}img/emascouser.png" alt="" style="height: 100px; width:100%; border-radius:10px;" class = "visible-xs">
+			<img src = "{{STATIC_URL}}img/emascouser.png" alt="" style="height: 150px;width:100%; border-radius:10px;" class = "hidden-xs" >
+			{% endif %}
+		</div>
+		<div class = "col-md-6 col-sm-5 col-lg-6 col-xs-8">
+			<P>Name : {{singleMember.full_name}}</P>
+			<hr>
+			<P>Position : {{singleMember.position}}</P>	
+			<hr>		
+		</div>
+		<!---for other devices other than mobile phones ---->
+		<div class = "col-md-4 col-sm-3 col-lg-4 hidden-xs">
+			<div class = "">
+				<button type="button" class="btn btn-primary" id = "histoty" style = "width:100%;">History</button>
+				<!-- details for History -->
+				
+			</div>
+			<div style = "margin-top:1%;">
+				<button type="button" class="btn btn-primary" id = "experiance" style = "width:100%;">Experiance</button>
+				<!-- details for Experiance -->
+				
+			</div>
+			<div style = "margin-top:1%;">
+				<button type="button" class="btn btn-primary" id = "specilazation" style = "width:100%;">Specilazation</button>	
+				<!-- details for Specilazation -->
+				
+			</div>
+		</div>	
+		<!-- only for mobiles phones -->
+		<div class = "row visible-xs">	
+			<hr>		
+			<div class = "col-xs-2"></div>		
+			<div class = "col-xs-8">				
+				<div class = "">
+					<button type="button" class="btn btn-primary" id = "histoty" style = "width:100%;">History</button>
+					<!-- details for History -->
+					
+				</div>
+				<div style = "margin-top:1%;">
+					<button type="button" class="btn btn-primary" id = "experiance" style = "width:100%;">Experiance</button>
+					<!-- details for Experiance-->
+					
+				</div>
+				<div style = "margin-top:1%;">
+					<button type="button" class="btn btn-primary" id = "specilazation" style = "width:100%;">Specilazation</button>	
+					<!-- details for Specilazation -->
+					
+				</div>					
+			<div class = "col-xs-2"></div>		
+		</div>
 	</div>
+	
 </div>
 
 
