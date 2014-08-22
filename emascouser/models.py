@@ -16,3 +16,11 @@ class User(models.Model):
 	
 	def __unicode__(self):
 		return self.full_name
+
+class Specialization(models.Model):
+	
+	emasco_member = models.ForeignKey('User',on_delete = models.CASCADE)
+	specialization = models.CharField(max_length = 200 )
+	
+	def __unicode__(self):
+		return self.specialization

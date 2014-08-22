@@ -1,10 +1,30 @@
 {% extends "base.html" %}
 {% block pageContainer %}
-
-<div class = "container-fluid"  style = "min-height:200px;">
-	<div class = "row">
-		<p>emasco's core team page coming soon!!!</p>
+<!-- core team details ----->
+<div class = "container-fluid"  style = "min-height:200px; max-width:100%;margin:auto">
+	{% for teammember in coreteams %}
+	<div class = "row">		
+		<div class = "col-md-2 col-sm-4 col-lg-2 col-xs-4">
+			{% if teammember.username = "joseh" %}
+			<img src = "{{STATIC_URL}}img/joseph.png" alt="" style="height: 100px; width:100%;" class = "visible-xs">
+			<img src = "{{STATIC_URL}}img/joseph.png" alt="" style="height: 150px;width:100%;" class = "hidden-xs" >
+			{% else %}
+			<img src = "{{STATIC_URL}}img/emascouser.png" alt="" style="height: 100px; width:100%;" class = "visible-xs">
+			<img src = "{{STATIC_URL}}img/emascouser.png" alt="" style="height: 150px;width:100%;" class = "hidden-xs" >
+			{% endif %}
+		</div>
+		<div class = "col-md-7 col-sm-6 col-lg-7 col-xs-8">
+			<P>Name : {{teammember.}}</P>
+			<P>Position : {{teammember.}}</P>			
+		</div>
+		
+		<div class = "col-md-3 col-sm-2 col-lg-3">
+			<button type="button" class="btn btn-info" onclick = "window.location.href='#'">More info</button>
+		</div>	
 	</div>
+	<hr>
+	
+	{% endfor %}
 </div>
 
 
