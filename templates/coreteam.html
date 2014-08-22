@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 {% block pageContainer %}
+<!--- breadcrums --->
+<ol class="breadcrumb">
+	<li><a href="{% url 'home' %}">Home</a></li>
+	<li class = "active">Our core team</li>
+</ol>
+
+
+
+
 <!-- core team details ----->
 <div class = "container-fluid"  style = "min-height:200px; max-width:100%;margin:auto">
 	{% for teammember in coreteams %}
@@ -19,7 +28,7 @@
 		</div>
 		
 		<div class = "col-md-4 col-sm-2 col-lg-4">
-			<button type="button" class="btn btn-info" onclick = "window.location.href='#'" >More info</button>
+			<button type="button" class="btn btn-info" onclick = "window.location.href='{% url 'singleMember' teammember.id %}'" >More info</button>
 		</div>	
 	</div>
 	<hr>

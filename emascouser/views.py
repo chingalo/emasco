@@ -12,3 +12,14 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.enums import TA_CENTER
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+
+from emascouser.models import *
+
+
+#singlemember.html
+def singleMember(request, user_id):
+	
+	singleMember = User.objects.get(id = user_id)
+	
+	context = {'singleMember':singleMember}
+	return render(request,'singlemember.html',context)

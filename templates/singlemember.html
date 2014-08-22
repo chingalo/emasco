@@ -3,13 +3,13 @@
 <!--- breadcrums --->
 <ol class="breadcrumb">
 	<li><a href="{% url 'home' %}">Home</a></li>
-	<li class = "active">Contact us</li>
+	<li><a href="{% url 'coreTeam' %}">core team</a></li>
+	<li class = "active">{{singleMember.full_name}}</li>
 </ol>
-
 
 <div class = "container-fluid"  style = "min-height:200px;">
 	<div class = "row">
-		<p>emasco's contact us page coming soon !!</p>
+		<p>single member : {{singleMember}}</p>
 	</div>
 </div>
 
