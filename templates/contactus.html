@@ -16,6 +16,7 @@
 				<button type="button" class="btn btn-primary" id = "companyinfobutton" style = "width:100%;">Our Contacts info</button>
 				<div id = "companyinfo" style = "border-radius:10px;border:1px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;">
 					{% for info in companyInfo%}
+					<p>{{info.name_of_company}}</p>
 					{% if info.email%}
 					<p><span class = "glyphicon glyphicon-envelope"></span>  : <a href = "mailto:{{info.email}}">{{info.email}}</a></p>
 					{% endif %}					
@@ -24,6 +25,9 @@
 					{% endif %}					
 					{% if info.fax_number%}
 					<p><span class = "glyphicon glyphicon-phone-alt"></span> : {{info.fax_number}}</p>
+					{% endif %}
+					{% if info.postal_address%}
+					<p><span class = "glyphicon glyphicon-pushpin"></span> : {{info.postal_address}}</p>
 					{% endif %}					
 					{% if info.physical_location%}
 					<p><span class = "glyphicon glyphicon-pushpin"></span> : {{info.physical_location}}</p>
@@ -40,22 +44,22 @@
 				<button type="button" class="btn btn-primary" id = "contactmessagebutton" style = "width:100%;;">Send Your message</button>
 				<div id = "contactmessage" style = "border-radius:10px;border:1px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;"> 
 					<p style = "text-align:center; margin-bottom:2%;">Contact Us</p>
-					<form  >
+					<form action = "{% url 'contactMessage' %}" method = "POST" onsubmit = "return sendContactMessageMobile()">
 						{% csrf_token %}
 						<div class = "form-group">
-							<input type = "text" id = "conatct_full_name" name = "fullName" class = "form-control" placeholder = "Your full name"/>
+							<input type = "text" id = "contact_full_name_mobile" name = "fullName" class = "form-control" placeholder = "Your full name"/>
 						</div>
 						<div class = "form-group">
-							<input type = "text" id = "conatct_email" name = "email" class = "form-control" placeholder = "Your e-mail"/>
+							<input type = "text" id = "contact_email_mobile" name = "email" class = "form-control" placeholder = "Your e-mail"/>
 						</div>
 						<div class = "form-group">
-							<input type = "text" id = "conatct_mobile_number" name = "mobilenumber" class = "form-control" placeholder = "Your mobile number"/>
+							<input type = "text" id = "contact_mobile_number_mobile" name = "mobilenumber" class = "form-control" placeholder = "Your mobile number"/>
 						</div>
 						<div class = "form-group">
-							<input type = "text" id = "conatct_subject" name = "subject" class = "form-control" placeholder = "Your message subject"/>
+							<input type = "text" id = "contact_subject_mobile" name = "subject" class = "form-control" placeholder = "Your message subject"/>
 						</div>
 						<div class = "form-group">
-							<textarea id= "conatct_message" placeholder = "Your message" name = "message" class = "form-control"></textarea>
+							<textarea id= "conatct_message_mobile" placeholder = "Your message" name = "message" class = "form-control"></textarea>
 						</div>
 						<div class = "form-group">
 							<input type = "submit" value = "send message">
@@ -71,6 +75,7 @@
 		<div class = "col-md-5 col-sm-5 col-lg-5 " style = "border-right:2px solid  #F5F5F8;border-left:2px solid  #F5F5F8;border-radius:10px;">
 			<p style = "max-width:80%;margin:auto;">Our contact info :-</p>
 			{% for info in companyInfo%}
+			<p>{{info.name_of_company}}</p>
 			{% if info.email%}
 			<p><span class = "glyphicon glyphicon-envelope"></span>  : <a href = "mailto:{{info.email}}">{{info.email}}</a></p>
 			{% endif %}					
@@ -80,6 +85,9 @@
 			{% if info.fax_number%}
 			<p><span class = "glyphicon glyphicon-phone-alt"></span> : {{info.fax_number}}</p>
 			{% endif %}					
+			{% if info.postal_address%}
+			<p><span class = "glyphicon glyphicon-pushpin"></span> : {{info.postal_address}}</p>
+			{% endif %}				
 			{% if info.physical_location%}
 			<p><span class = "glyphicon glyphicon-pushpin"></span> : {{info.physical_location}}</p>
 			{% endif %}					
@@ -94,19 +102,19 @@
 		<div class = "col-md-6 col-sm-6 col-lg-6" style = "border-right:2px solid  #F5F5F8;border-left:2px solid  #F5F5F8;border-radius:10px;">
 			<p>Contact Us</p>
 			<div >
-				<form  >
+				<form  action = "{% url 'contactMessage' %}" method = "POST" onsubmit = "return sendContactMessage()">
 					{% csrf_token %}
 					<div class = "form-group">
-						<input type = "text" id = "conatct_full_name" name = "fullName" class = "form-control" placeholder = "Your full name"/>
+						<input type = "text" id = "contact_full_name" name = "fullName" class = "form-control" placeholder = "Your full name"/>
 					</div>
 					<div class = "form-group">
-						<input type = "text" id = "conatct_email" name = "email" class = "form-control" placeholder = "Your e-mail"/>
+						<input type = "text" id = "contact_email" name = "email" class = "form-control" placeholder = "Your e-mail"/>
 					</div>
 					<div class = "form-group">
-						<input type = "text" id = "conatct_mobile_number" name = "mobilenumber" class = "form-control" placeholder = "Your mobile number"/>
+						<input type = "text" id = "contact_mobile_number" name = "mobilenumber" class = "form-control" placeholder = "Your mobile number"/>
 					</div>
 					<div class = "form-group">
-						<input type = "text" id = "conatct_subject" name = "subject" class = "form-control" placeholder = "Your message subject"/>
+						<input type = "text" id = "contact_subject" name = "subject" class = "form-control" placeholder = "Your message subject"/>
 					</div>
 					<div class = "form-group">
 						<textarea id= "conatct_message" rows = "6" placeholder = "Your message" name = "message" class = "form-control"></textarea>
