@@ -1,4 +1,4 @@
 from django.contrib import admin
-from contacts.models import *
+from portfolio.models import *
 
 #admin.site.register(User)
