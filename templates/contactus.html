@@ -8,8 +8,33 @@
 
 
 <div class = "container-fluid"  style = "min-height:200px;">
-	<div class = "row">
-		<p>emasco's contact us page coming soon !!</p>
+	<!-- for mobiles phones --->
+	<div class = "row visible-xs">
+		<div style = "max-width:90%;margin:auto;">
+			<!-- contacts info in mobile phones --->
+			<div>
+				<button type="button" class="btn btn-primary" id = "companyinfobutton" style = "width:100%;">Our Contacts info</button>
+				<div id = "companyinfo" style = "border-radius:10px;border:1px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;">
+					contact info
+				</div>
+			</div>
+			
+			<!-- contacts message in mobile phones --->
+			<div  style = "margin-top:1%;">
+				<button type="button" class="btn btn-primary" id = "contactmessagebutton" style = "width:100%;;">Send Your message</button>
+				<div id = "contactmessage" style = "border-radius:10px;border:1px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;"> 
+					form for contact us
+				</div>
+			</div>		
+		</div>
+	</div>
+	
+	<!-- for other devices -->
+	<div class = "row hidden-xs">
+		<div class = "col-md-5 col-sm-5 col-lg-5 ">
+			<p>Company contact details</p>
+		</div>
+		<div class = "col-md-7 col-sm-7 col-lg-7">Message to company</div>
 	</div>
 </div>
 
