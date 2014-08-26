@@ -13,6 +13,7 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from emascouser.models import *
+from contacts.models import *
 
 
 #home pagae for emasco
@@ -63,5 +64,7 @@ def coreTeam(request):
 #emasco contact us page
 def contactUs(request):
 	
-	context = {}
+	companyInfo = CompanyInfo.objects.all()
+	
+	context = {'companyInfo':companyInfo}
 	return render(request,'contactus.html',context)

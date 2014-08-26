@@ -15,7 +15,23 @@
 			<div>
 				<button type="button" class="btn btn-primary" id = "companyinfobutton" style = "width:100%;">Our Contacts info</button>
 				<div id = "companyinfo" style = "border-radius:10px;border:1px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;">
-					contact info
+					{% for info in companyInfo%}
+					{% if info.email%}
+					<p><span class = "glyphicon glyphicon-envelope"></span>  : <a href = "mailto:{{info.email}}">{{info.email}}</a></p>
+					{% endif %}					
+					{% if info.mobile_number%}
+					<p><span class = "glyphicon glyphicon-phone"></span>  : {{info.mobile_number}}</p>
+					{% endif %}					
+					{% if info.fax_number%}
+					<p><span class = "glyphicon glyphicon-phone-alt"></span> : {{info.fax_number}}</p>
+					{% endif %}					
+					{% if info.physical_location%}
+					<p><span class = "glyphicon glyphicon-pushpin"></span> : {{info.physical_location}}</p>
+					{% endif %}					
+					{% if info.website%}
+					<p><span class = "glyphicon glyphicon-globe"></span> : <a href = "{{info.website}}">{{info.website}}</a></p>
+					{% endif %}					
+					{% endfor %}
 				</div>
 			</div>
 			
@@ -23,18 +39,84 @@
 			<div  style = "margin-top:1%;">
 				<button type="button" class="btn btn-primary" id = "contactmessagebutton" style = "width:100%;;">Send Your message</button>
 				<div id = "contactmessage" style = "border-radius:10px;border:1px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;"> 
-					form for contact us
+					<p style = "text-align:center; margin-bottom:2%;">Contact Us</p>
+					<form  >
+						{% csrf_token %}
+						<div class = "form-group">
+							<input type = "text" id = "conatct_full_name" name = "fullName" class = "form-control" placeholder = "Your full name"/>
+						</div>
+						<div class = "form-group">
+							<input type = "text" id = "conatct_email" name = "email" class = "form-control" placeholder = "Your e-mail"/>
+						</div>
+						<div class = "form-group">
+							<input type = "text" id = "conatct_mobile_number" name = "mobilenumber" class = "form-control" placeholder = "Your mobile number"/>
+						</div>
+						<div class = "form-group">
+							<input type = "text" id = "conatct_subject" name = "subject" class = "form-control" placeholder = "Your message subject"/>
+						</div>
+						<div class = "form-group">
+							<textarea id= "conatct_message" placeholder = "Your message" name = "message" class = "form-control"></textarea>
+						</div>
+						<div class = "form-group">
+							<input type = "submit" value = "send message">
+						</div>			
+					</form>
 				</div>
 			</div>		
 		</div>
 	</div>
 	
 	<!-- for other devices -->
-	<div class = "row hidden-xs">
-		<div class = "col-md-5 col-sm-5 col-lg-5 ">
-			<p>Company contact details</p>
+	<div class = "row hidden-xs" style = "max-width:98%;margin:auto;">
+		<div class = "col-md-5 col-sm-5 col-lg-5 " style = "border-right:2px solid  #F5F5F8;border-left:2px solid  #F5F5F8;border-radius:10px;">
+			<p style = "max-width:80%;margin:auto;">Our contact info :-</p>
+			{% for info in companyInfo%}
+			{% if info.email%}
+			<p><span class = "glyphicon glyphicon-envelope"></span>  : <a href = "mailto:{{info.email}}">{{info.email}}</a></p>
+			{% endif %}					
+			{% if info.mobile_number%}
+			<p><span class = "glyphicon glyphicon-phone"></span>  : {{info.mobile_number}}</p>
+			{% endif %}					
+			{% if info.fax_number%}
+			<p><span class = "glyphicon glyphicon-phone-alt"></span> : {{info.fax_number}}</p>
+			{% endif %}					
+			{% if info.physical_location%}
+			<p><span class = "glyphicon glyphicon-pushpin"></span> : {{info.physical_location}}</p>
+			{% endif %}					
+			{% if info.website%}
+			<p><span class = "glyphicon glyphicon-globe"></span> : <a href = "{{info.website}}">{{info.website}}</a></p>
+			{% endif %}					
+			{% endfor %}
 		</div>
-		<div class = "col-md-7 col-sm-7 col-lg-7">Message to company</div>
+		
+		<div class = "col-md-1 col-sm-1 col-lg-1"></div>
+		<!-- contact form -->
+		<div class = "col-md-6 col-sm-6 col-lg-6" style = "border-right:2px solid  #F5F5F8;border-left:2px solid  #F5F5F8;border-radius:10px;">
+			<p>Contact Us</p>
+			<div >
+				<form  >
+					{% csrf_token %}
+					<div class = "form-group">
+						<input type = "text" id = "conatct_full_name" name = "fullName" class = "form-control" placeholder = "Your full name"/>
+					</div>
+					<div class = "form-group">
+						<input type = "text" id = "conatct_email" name = "email" class = "form-control" placeholder = "Your e-mail"/>
+					</div>
+					<div class = "form-group">
+						<input type = "text" id = "conatct_mobile_number" name = "mobilenumber" class = "form-control" placeholder = "Your mobile number"/>
+					</div>
+					<div class = "form-group">
+						<input type = "text" id = "conatct_subject" name = "subject" class = "form-control" placeholder = "Your message subject"/>
+					</div>
+					<div class = "form-group">
+						<textarea id= "conatct_message" rows = "6" placeholder = "Your message" name = "message" class = "form-control"></textarea>
+					</div>
+					<div class = "form-group">
+						<input type = "submit" value = "send message">
+					</div>			
+				</form>			
+			</div>			
+		</div>
 	</div>
 </div>
 

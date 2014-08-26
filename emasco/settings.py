@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'home',
     'emascouser',
+    'contacts',
 )
 
 MIDDLEWARE_CLASSES = (
