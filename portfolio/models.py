@@ -11,3 +11,20 @@ class Client(models.Model):
 	def __unicode__(self):
 		return self.name
 		
+
+class Portfolio(models.Model):
+	title = models.CharField(max_length = 200)
+	description = models.TextField(max_length = 20000, blank = True)
+	date_of_submission = models.DateTimeField()
+	client = models.ForeignKey('Client',on_delete = models.CASCADE)
+	
+	def __unicode__(self):
+		return self.title
+
+class Gallery(models.Model):
+	portfolio = models.ForeignKey('Portfolio',on_delete = models.CASCADE)
+	image = models.ImageField(upload_to='portfolio')
+	
+	def __unicode__(self):
+		return portfolio.title
+	
