@@ -7,9 +7,33 @@
 </ol>
 
 
-<div class = "container-fluid"  style = "min-height:200px;">
-	<div class = "row">
-		<p>Emasco's portfolio page coming soon!!!!</p>
+<div class = "container-fluid"  >
+	<!-- for mobile phones  --->
+	<div class = "visible-xs">
+		{% for portfolio in portfolios%}
+		<div class = "row" style = "margin-bottom:2%;border-bottom:3px solid #F5F5F5;padding-bottom:2%;border-radius:10px;">
+			<div class = "col-xs-7">
+				<p>{{portfolio}}</p>
+			</div>
+			<div class = "col-xs-5">
+				<button type="button" class="btn btn-primary"  style = "width:100%;">More info</button>
+			</div>
+		</div>	
+		{% endfor %}	
+	</div>
+	
+	<!-- for other devces -->
+	<div class = "hidden-xs">
+		{% for portfolio in portfolios%}
+		<div class = "row" style = "border-bottom:3px solid #F5F5F5;padding-bottom:2%;border-radius:10px; max-width:95%;margin:auto;margin-bottom:2%;">
+			<div class = "col-md-7 col-sm-7 col-lg-7">
+				<p>{{portfolio}}</p>
+			</div>
+			<div class = "col-md-5 col-sm-5 col-lg-5">
+				<button type="button" class="btn btn-primary"  style = "width:100%;">More info</button>
+			</div>
+		</div>	
+		{% endfor %}		
 	</div>
 </div>
 

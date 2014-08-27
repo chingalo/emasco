@@ -14,6 +14,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Tabl
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from emascouser.models import *
 from contacts.models import *
+from portfolio.models import *
 
 
 #home pagae for emasco
@@ -37,8 +38,9 @@ def services(request):
 #emasco's portfolio
 def portfolio(request):	
 	
+	portfolios = Portfolio.objects.all()
 	
-	context = {}
+	context = {'portfolios':portfolios}
 	return render(request,'portfolio.html',context)
 
 
