@@ -25,6 +25,5 @@ class Gallery(models.Model):
 	portfolio = models.ForeignKey('Portfolio',on_delete = models.CASCADE)
 	image = models.ImageField(upload_to='portfolio')
 	
-	def __unicode__(self):
-		return portfolio.title
+	
 	
