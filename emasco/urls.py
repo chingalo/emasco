@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     
     url(r'', include('home.urls')),
     #url(r'', include('services.urls')),
-   # url(r'', include('portfolio.urls')),
+    url(r'', include('portfolio.urls')),
     url(r'', include('contacts.urls')),
     url(r'', include('emascouser.urls')),
     url(r'^admin/', include(admin.site.urls)),

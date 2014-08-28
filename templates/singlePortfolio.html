@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block pageContainer %}
+<!--- breadcrums --->
+<ol class="breadcrumb">
+	<li><a href="{% url 'home' %}">Home</a></li>
+	<li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+	<li class = "active">coming sooon!!</li>
+</ol>
+
+<div class = "container-fluid"  style = "min-height:200px;">
+	<!-- for mobile phones -->
+	<div class = "row" style = "max-width:90%;margin:auto;">
+		<div class = "visible-xs">
+		single poryfolio comming soon!!!! on mobile
+		</div>				
+	</div>
+	
+	<!-- for other divices -->
+	<div class = "row" style = "max-width:90%;margin:auto;">
+		<div class = "hidden-xs">
+			single poryfolio comming soon!!!! on pc, tablets
+		</div>				
+	</div>
+
+</div>
+{% endblock %}

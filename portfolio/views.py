@@ -12,3 +12,14 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.enums import TA_CENTER
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+
+from portfolio.models import *
+
+
+#view for single portfolio
+def singlePortfolio(request, portfolio_id):
+	
+	
+	context = {}
+	return render(request,'singlePortfolio.html',context)
+
