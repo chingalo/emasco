@@ -22,7 +22,7 @@ $(document).ready(function(){
 	
 	
 	//for other devices
-	$("#portfolio_description_details").hide();
+	$("#portfolio_description_details").show();
 	$("#portfolio_client_details").hide();	
 	
 	$("#portfolio_description").click(function(){ 

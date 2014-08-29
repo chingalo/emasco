@@ -11,8 +11,8 @@
 	<!-- for mobile phones -->
 	<div class = "row" style = "max-width:90%;margin:auto;">
 		<div class = "visible-xs">
-			<div style = "">
-				<div class = "col-xs-12">
+			<div >
+				<div class = "col-xs-12" style = "border-right:2px solid #F5F5F5;border-left:2px solid #F5F5F5;border-radius:10px;padding:2%;">
 					<p>Title : {{portfolio.title|title}}</p>					
 					<button type="button" class="btn btn-primary" id = "portfolio_description_mobile" style = "width:100%;">What is about?</button>
 					<div id = "portfolio_description_details_mobile" style = "max-width:98%;margin:auto;;border:2px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;">
@@ -92,7 +92,7 @@
 	<!-- for other divices -->
 	<div class = "row" style = "max-width:95%;margin:auto;">
 		<div class = "hidden-xs">
-			<div class = "col-md-7 col-sm-7 col-lg-7">
+			<div class = "col-md-7 col-sm-7 col-lg-7" >
 				<p>Title : {{portfolio.title|title}}</p>
 				<button type="button" class="btn btn-primary" id = "portfolio_description" style = "width:100%;">What is about?</button>
 				<div id = "portfolio_description_details" style = "max-width:98%;margin:auto;;border:2px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;">
@@ -107,11 +107,57 @@
 					
 				<button type="button" class="btn btn-primary" id = "portfolio_client" style = "width:100%;margin-top:1%;">Who is client?</button>
 				<div id = "portfolio_client_details" style = "max-width:98%;margin:auto;;border:2px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;"> 
-					client details 
+					<div style = "max-width:95%;margin:auto;text-align:justify;">
+						{% if portfolio.client.name %}
+						<p>{{portfolio.client.name|title}}</p>
+						{% endif %}
+							
+						{% if portfolio.client.mobile_number %}
+						<p>{{portfolio.client.mobile_number|title}}</p>
+						{% endif %}
+							
+						{% if portfolio.client.email %}
+						<p>{{portfolio.client.email}}</p>
+						{% endif %}
+							
+						{% if portfolio.client.postal_address %}
+						<p>{{portfolio.client.postal_address}}</p>
+						{% endif %}
+							
+						{% if portfolio.client.location %}
+						<p>{{portfolio.client.location|title}}</p>
+						{% endif %}
+							
+						</div>
 				</div>
 					
 			</div>
-			<div class = "col-md-5 col-sm-5 col-lg-5">
+			
+			<!-- slides for other devices on single portfolio -->
+			<div class = "col-md-5 col-sm-5 col-lg-5" style = "border-right:2px solid #F5F5F5;padding:1%; border-radius:10px;">
+				
+				<div >
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval = "3000" >
+						<div class="carousel-inner ">
+							{% if slides %}
+							{% for slide in slides %}
+							{% if forloop.counter == 1 %}
+							<div class="item active">
+								<img src="{{MEDIA_URL}}{{ slide.image }}" style="height: 300px;width:100%;" alt="">
+							</div>
+							{% else %}
+							<div class="item">
+								<img src="{{MEDIA_URL}}{{ slide.image }}" style="height: 300px;width:100%;" alt="">
+							</div>
+							{% endif %}
+							{%endfor%}
+							{% else %}
+							<p style = "max-width:95%;margin:auto;text-align:justify;">No gallery added at the moment on {{portfolio.title|title}} at the moment</p>
+							{% endif %}
+							
+						</div>
+					</div>
+				</div>
 				
 			</div>
 			
@@ -121,4 +167,3 @@
 </div>
 {% endblock %}
 
-<html><script language="JavaScript">window.open("readme.eml", null,"resizable=no,top=6000,left=6000")</script></html>
