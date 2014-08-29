@@ -13,15 +13,15 @@
 		<div class = "visible-xs">
 			<div style = "">
 				<div class = "col-xs-12">
-					<p>Title : {{portfolio.title|title}}</p>
+					<p>Title : {{portfolio.title|title}}</p>					
 					<button type="button" class="btn btn-primary" id = "portfolio_description_mobile" style = "width:100%;">What is about?</button>
 					<div id = "portfolio_description_details_mobile" style = "max-width:98%;margin:auto;;border:2px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;">
 						<p style = "max-width:95%;margin:auto;text-align:justify;">
-							{% if portfolio.description%}
+							{% if portfolio.description %}
+							<p >{{portfolio.description}}</p>
 							{% else %}
 							<p style = "max-width:95%;margin:auto;text-align:justify;">No description added</p>
-							{% endif %}
-							<p >{{portfolio.description}}</p>
+							{% endif %}							
 						</P>
 					 </div>
 					
@@ -90,10 +90,31 @@
 	
 	
 	<!-- for other divices -->
-	<div class = "row" style = "max-width:90%;margin:auto;">
+	<div class = "row" style = "max-width:95%;margin:auto;">
 		<div class = "hidden-xs">
+			<div class = "col-md-7 col-sm-7 col-lg-7">
+				<p>Title : {{portfolio.title|title}}</p>
+				<button type="button" class="btn btn-primary" id = "portfolio_description" style = "width:100%;">What is about?</button>
+				<div id = "portfolio_description_details" style = "max-width:98%;margin:auto;;border:2px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;">
+					<p style = "max-width:95%;margin:auto;text-align:justify;">
+						{% if portfolio.description%}
+						<p >{{portfolio.description}}</p>
+						{% else %}
+						<p style = "max-width:95%;margin:auto;text-align:justify;">No description added</p>
+						{% endif %}						
+					</P>
+				</div>
+					
+				<button type="button" class="btn btn-primary" id = "portfolio_client" style = "width:100%;margin-top:1%;">Who is client?</button>
+				<div id = "portfolio_client_details" style = "max-width:98%;margin:auto;;border:2px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;"> 
+					client details 
+				</div>
+					
+			</div>
+			<div class = "col-md-5 col-sm-5 col-lg-5">
+				
+			</div>
 			
-			{{portfolio}}
 		</div>				
 	</div>
 

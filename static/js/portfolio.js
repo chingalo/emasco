@@ -20,7 +20,18 @@ $(document).ready(function(){
                 $("#portfolio_gallery_details_mobile").slideToggle();
                 });                     
 	
-	//for other devices
 	
+	//for other devices
+	$("#portfolio_description_details").hide();
+	$("#portfolio_client_details").hide();	
+	
+	$("#portfolio_description").click(function(){ 
+                $("#portfolio_client_details").hide();
+                $("#portfolio_description_details").slideToggle();
+                });
+    $("#portfolio_client").click(function(){                
+                $("#portfolio_description_details").hide();
+                $("#portfolio_client_details").slideToggle();
+                });
 	
 });
