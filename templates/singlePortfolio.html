@@ -13,27 +13,81 @@
 		<div class = "visible-xs">
 			<div style = "">
 				<div class = "col-xs-12">
-					<p>Title : {{portfolio.title|title}}ti</p>
+					<p>Title : {{portfolio.title|title}}</p>
 					<button type="button" class="btn btn-primary" id = "portfolio_description_mobile" style = "width:100%;">What is about?</button>
 					<div id = "portfolio_description_details_mobile" style = "max-width:98%;margin:auto;;border:2px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;">
-						description
+						<p style = "max-width:95%;margin:auto;text-align:justify;">
+							{% if portfolio.description%}
+							{% else %}
+							<p style = "max-width:95%;margin:auto;text-align:justify;">No description added</p>
+							{% endif %}
+							<p >{{portfolio.description}}</p>
+						</P>
 					 </div>
 					
 					<button type="button" class="btn btn-primary" id = "portfolio_client_mobile" style = "width:100%;margin-top:1%;">Who is client?</button>
 					<div id = "portfolio_client_details_mobile" style = "max-width:98%;margin:auto;;border:2px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;"> 
-						client details 
+						<div style = "max-width:95%;margin:auto;text-align:justify;">
+							{% if portfolio.client.name %}
+							<p>{{portfolio.client.name|title}}</p>
+							{% endif %}
+							
+							{% if portfolio.client.mobile_number %}
+							<p>{{portfolio.client.mobile_number|title}}</p>
+							{% endif %}
+							
+							{% if portfolio.client.email %}
+							<p>{{portfolio.client.email}}</p>
+							{% endif %}
+							
+							{% if portfolio.client.postal_address %}
+							<p>{{portfolio.client.postal_address}}</p>
+							{% endif %}
+							
+							{% if portfolio.client.location %}
+							<p>{{portfolio.client.location|title}}</p>
+							{% endif %}
+							
+						</div>
 					</div>
 					
 					<button type="button" class="btn btn-primary" id = "portfolio_gallery_mobile" style = "width:100%;margin-top:1%;">Gallery</button>
 					<div id = "portfolio_gallery_details_mobile" style = "max-width:98%;margin:auto;;border:2px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;"> 
-						gallery in slides
+						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval = "3000" >
+														
+							<div class="carousel-inner ">
+								{% if slides %}
+								
+								{% for slide in slides %}
+								{% if forloop.counter == 1 %}
+								<div class="item active">
+									<img src="{{MEDIA_URL}}{{ slide.image }}" style="height: 200px;width:100%;" alt="">
+									<div class="carousel-caption">										
+									</div>
+								</div>
+								{% else %}
+								<div class="item">
+									<img src="{{MEDIA_URL}}{{ slide.image }}" style="height: 200px;width:100%;" alt="">
+									<div class="carousel-caption">
+									</div>
+								</div>
+								{% endif %}
+								{%endfor%}
+								{% else %}
+								<p style = "max-width:95%;margin:auto;text-align:justify;">No gallery added at the moment on {{portfolio.title|title}}</p>
+								{% endif %}
+							</div>
+						
+						</div>
 					</div>
 					
 				</div>
 			</div>
-			<!--{{portfolio}}  description {client: name mobile_number email postal_address location }-->
+			
 		</div>				
 	</div>
+	
+	
 	
 	<!-- for other divices -->
 	<div class = "row" style = "max-width:90%;margin:auto;">

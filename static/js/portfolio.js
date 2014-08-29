@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	//control for all activites iin single portfolio in mobile
 	$("#portfolio_description_details_mobile").hide();
 	$("#portfolio_client_details_mobile").hide();
 	$("#portfolio_gallery_details_mobile").hide();
@@ -19,6 +20,7 @@ $(document).ready(function(){
                 $("#portfolio_gallery_details_mobile").slideToggle();
                 });                     
 	
+	//for other devices
 	
 	
 });

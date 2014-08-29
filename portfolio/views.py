@@ -20,7 +20,8 @@ from portfolio.models import *
 def singlePortfolio(request, portfolio_id):
 	
 	portfolio = Portfolio.objects.get(id = portfolio_id)
+	slides = Gallery.objects.filter(portfolio = portfolio)
 	
-	context = {'portfolio':portfolio}
+	context = {'portfolio':portfolio,'slides':slides}
 	return render(request,'singlePortfolio.html',context)
 
