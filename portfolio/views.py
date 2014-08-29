@@ -19,7 +19,8 @@ from portfolio.models import *
 #view for single portfolio
 def singlePortfolio(request, portfolio_id):
 	
+	portfolio = Portfolio.objects.get(id = portfolio_id)
 	
-	context = {}
+	context = {'portfolio':portfolio}
 	return render(request,'singlePortfolio.html',context)
 
