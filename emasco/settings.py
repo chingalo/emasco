@@ -54,7 +54,8 @@ INSTALLED_APPS = (
     'home',
     'emascouser',
     'contacts',
-    'portfolio'
+    'portfolio',
+    'administration',
 )
 
 MIDDLEWARE_CLASSES = (

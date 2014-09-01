@@ -23,7 +23,7 @@
 			<div class = "row">
 				<!-- for other devices --->
 				<div class = "hidden-xs">
-					<form role="form" action = "{% url 'adminstration' %}" method = "POST" >
+					<form role="form" action = "{% url 'adminstration' %}" method = "POST" onsubmit = "return loginValidate()">
 						{% csrf_token %}
 						<div class="form-group">
 							<input type="text" class="form-control" id="adminstration_username" placeholder="Username" name = "username">
@@ -40,7 +40,7 @@
 				
 				<!--- for mobile phones -->
 				<div class = "visible-xs">
-					<form role="form" action = "{% url 'adminstrationMobo' %}" method = "POST" >
+					<form role="form" action = "{% url 'adminstrationMobo' %}" method = "POST" onsubmit = "return loginMoboValidate()" >
 						{% csrf_token %}
 						<div class="form-group">
 							<input type="text" class="form-control" id="adminstration_username_mobile" placeholder="Username" name = "username_mobile">
@@ -72,6 +72,7 @@
 	
 	<!--- scripts ----->
 	<script src="{{STATIC_URL}}js/jquery.min.js"></script>
+	<script src="{{STATIC_URL}}js/login.js"></script>
 	<script src="{{STATIC_URL}}js/bootstrap.min.js" type = "text/javascript"></script>
 	</body>
 
