@@ -17,29 +17,45 @@ from emascouser.models import *
 #login for pproces in mobile 
 def adminstrationMobo(request):
 	allUsers = User.objects.all()
-	form = request.POST
-	
-	usernameList = form.getlist('username_mobile')
-	passwordList = form.getlist('password_mobile')
-	
-	tester = "not_match"
-	
-	for user in allUsers:
-		if user.username == usernameList[0] and user.password == passwordList[0] :
-			tester = "match"
-			break
-			
-	if tester == "not_match":
+	if request.POST:
 		
-		warning = "Either password or username is incorrrect"
-		context = {'warning':warning}
-		return render(request, 'login.html',context)
+		form = request.POST
+		
+		usernameList = form.getlist('username_mobile')
+		passwordList = form.getlist('password_mobile')
+		
+		tester = "not_match"
+		
+		if usernameList == "" or passwordList == "":
 			
+			context = {}
+			return render(request, 'login.html',context)
+		
+		
+		for user in allUsers:
+			if user.username == usernameList[0] and user.password == passwordList[0] :
+				tester = "match"
+				break
+				
+		if tester == "not_match":
+			
+			warning = "Either password or username is incorrrect"
+			context = {'warning':warning}
+			return render(request, 'login.html',context)
+				
+		else:
+			
+			loginUser = User.objects.get(username = usernameList[0])
+			loginUser.login_status = "login"
+			loginUser.save()
+			
+			context = {'loginUser':loginUser,}
+			return render(request, 'administration.html',context)
 	else:
-		
 		context = {}
-		return render(request, 'administration.html',context)
-	
+		return render(request, 'login.html',context)
+		
+		
 
 
 
@@ -47,33 +63,44 @@ def adminstrationMobo(request):
 #login for pproces in other devices
 def adminstration(request):
 	allUsers = User.objects.all()
-	form = request.POST
-	
-	usernameList = form.getlist('username')
-	passwordList = form.getlist('password')
-	
-	tester = 0
-	
-	for user in allUsers:
-		if user.username == usernameList[0] and user.password == passwordList[0] :
-			tester = 1
-			break
-			
-	if tester == 0:
-		warning = "Either password or username is incorrrect"
+	if request.POST:
 		
-		context = {'warning':warning}		
-		return render(request, 'login.html',context)
+		form = request.POST
+		
+		usernameList = form.getlist('username')
+		passwordList = form.getlist('password')
+		
+		tester = 0	
 			
+		for user in allUsers:
+			if user.username == usernameList[0] and user.password == passwordList[0] :
+				tester = 1
+				break
+				
+		if tester == 0:
+			warning = "Either password or username is incorrrect"
+			
+			context = {'warning':warning}		
+			return render(request, 'login.html',context)
+				
+		else:
+			
+			loginUser = User.objects.get(username = usernameList[0])
+			loginUser.login_status = "login"
+			loginUser.save()
+			
+			context = {'loginUser':loginUser,}
+			return render(request, 'administration.html',context)
+
 	else:
-		
 		context = {}
-		return render(request, 'administration.html',context)
-
-
+		return render(request, 'login.html',context)
 
 #logout process
-def logout(request):
+def logout(request,user_id):
 	
+	logoutUser = User.objects.get(id = user_id)
+	logoutUser.login_status = "logout"
+	logoutUser.save()
 	
 	return HttpResponseRedirect('/')

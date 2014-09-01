@@ -12,16 +12,20 @@
 	</head>
 	
 	<body style = "max-width:95%;margin:auto;margin-top:1%;">
+		<!-- for authorized user --->
+		{% if loginUser.login_status == "login"%}		
 		<!-- administration contents ---->
-		<div class = "container-fluid">
-			<!-- login dtails -->
-			<div class = "row" >
-				<div class = "col-md-10 col-sm-10 col-lg-110 col-xs-9">
-					<p>Welcome, username</p>
-					<p>profile picture</p>
+		<div class = "container-fluid">		
+			
+			<!-- login details -->
+			<div class = "row" style = "border-radius:10px;border-left:3px solid #E5E5E5;border-top:3px solid #E5E5E5;border-bottom:3px solid #E5E5E5;padding:1%;margin-bottom:2%;">				
+				<div class = "col-md-10 col-sm-10 col-lg-10 col-xs-9">
+					
+					<p><span class = "glyphicon glyphicon-user"> </span> {{loginUser}}</p>
+					
 				</div>
 				<div class = "col-md-2 col-sm-2 col-lg-2 col-xs-3">
-					<button type="button" class="btn btn-info pull-right" onclick = "window.location.href='{% url 'logout' %}'" >logout</button>
+					<button type="button" class="btn btn-info pull-right" onclick = "window.location.href='{% url 'logout' loginUser.id %}'" >logout</button>
 				</div>				
 			</div>
 			
@@ -37,6 +41,15 @@
 					<p>&copy; {% now "Y M " %}<br> all right reserved</p>
 				</div>
 			</div>
+			<!--- for non authorized user ---->
+			
+		{% else %}
+		<script>			
+			window.location = "/login"
+		</script>
+		{% endif%}
+		
+		
 		
 		</div>
 	<!--- scripts ----->
