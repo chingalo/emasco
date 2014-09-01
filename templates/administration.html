@@ -29,11 +29,54 @@
 				</div>				
 			</div>
 			
-			<!-- aside navigations --->
-			<div  class = "row">
-				<div class = "">aside bar</div>
-				<div class = "">contents</div>
+			<!--- for other devices --->
+			<div class = "row hidden-xs" style = " ">
+				<!-- aside bar navigation -->
+				<div class = "col-md-4 col-sm-4 col-lg-4">
+					<!-- Core team managements--->
+					<button type="button" class="btn btn-primary" id = "coreTeamManagement" style = "width:100%;">Management Of Core Team</button>
+					<div id = "coreTeamManagementLinks" style = "min-height:50px;background:#E5E5E5;max-width:97%;margin:auto;">
+					
+					</div>
+					
+					<!--- Portfolio managements ---->
+					<button type="button" class="btn btn-primary" id = "portfolioManagement" style = "width:100%;">Management Of Portfolio</button>
+					<div id = "portfolioManagementLinks" style = "min-height:50px;background:#E5E5E5;max-width:97%;margin:auto;">
+					
+					</div>
+					
+					<!--- services offered managaements -->
+					<button type="button" class="btn btn-primary" id = "servicesManagemnts" style = "width:100%;">Management Of Sevices</button>
+					<div id = "servicesManagemntsLinks" style = "min-height:50px;background:#E5E5E5;max-width:97%;margin:auto;">
+					
+					</div>
+					
+					<!--- managements of messages in the system---->
+					<button type="button" class="btn btn-primary" id = "messageMangement" style = "width:100%;">Messages</button>
+					<div id = "messageMangementLinks" style = "min-height:50px;background:#E5E5E5;max-width:97%;margin:auto;">
+					
+					</div>
+					
+					<!-- Personal Account managements -->
+					<button type="button" class="btn btn-primary" id = "accountManagement" style = "width:100%;">Account Mnagement</button>
+					<div id = "accountManagementLinks" style = "min-height:50px;background:#E5E5E5;max-width:97%;margin:auto;">
+					
+					</div>					
+				</div>
+				
+				<!-- contents -->
+				<div class = "col-md-8 col-sm-8 col-lg-8 " style = "border-left:3px solid #E5E5E5;border-right:3px solid #E5E5E5; min-height:300px;border-radius:10px;margin-bottom:2%;">
+					<p>Contents for anagements</p>
+				</div>
 			</div>
+			
+			
+			
+			<!-- for mobile phones -->
+			<div class = "row visible-xs">
+				<p>Administration panel on mobile coming soon!!<br>By developer</p>
+			</div>
+			
 			
 			<!-- footer ----->
 			<div class = "row well">
@@ -54,6 +97,7 @@
 		</div>
 	<!--- scripts ----->
 	<script src="{{STATIC_URL}}js/jquery.min.js"></script>
+	<script src="{{STATIC_URL}}js/adminNav.js"></script>
 	<script src="{{STATIC_URL}}js/bootstrap.min.js" type = "text/javascript"></script>
 	</body>
 
