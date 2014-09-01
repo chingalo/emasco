@@ -36,31 +36,48 @@
 					<!-- Core team managements--->
 					<button type="button" class="btn btn-primary" id = "coreTeamManagement" style = "width:100%;">Management Of Core Team</button>
 					<div id = "coreTeamManagementLinks" style = "min-height:50px;background:#E5E5E5;max-width:97%;margin:auto;">
-					
+						<ul class="nav nav-pills nav-stacked" style  = "ax-width:95%;margin:auto;">
+							<li><a href = "#">Add New Member</a></li>
+							<li><a href = "#">Edit Member Information</a></li>
+							<li><a href = "#">Change Role</a></li>
+						</ul>
 					</div>
 					
 					<!--- Portfolio managements ---->
 					<button type="button" class="btn btn-primary" id = "portfolioManagement" style = "width:100%;">Management Of Portfolio</button>
 					<div id = "portfolioManagementLinks" style = "min-height:50px;background:#E5E5E5;max-width:97%;margin:auto;">
-					
+						<ul class="nav nav-pills nav-stacked">
+							<li><a href = "#">Add New Client</a></li>
+							<li><a href = "#">Add New Portfolio</a></li>
+							<li><a href = "#">Edit Portfolio</a></li>
+						</ul>
 					</div>
 					
 					<!--- services offered managaements -->
 					<button type="button" class="btn btn-primary" id = "servicesManagemnts" style = "width:100%;">Management Of Sevices</button>
 					<div id = "servicesManagemntsLinks" style = "min-height:50px;background:#E5E5E5;max-width:97%;margin:auto;">
-					
+						<ul class="nav nav-pills nav-stacked">
+							comming soon!!!
+							<li><a href = "#"></a></li>
+						</ul>
 					</div>
 					
 					<!--- managements of messages in the system---->
 					<button type="button" class="btn btn-primary" id = "messageMangement" style = "width:100%;">Messages</button>
 					<div id = "messageMangementLinks" style = "min-height:50px;background:#E5E5E5;max-width:97%;margin:auto;">
-					
+						<ul class="nav nav-pills nav-stacked">							
+							<li><a href = "#">All Messages<span class="badge pull-right">42</span></a></li>
+							<li><a href = "#">Unread Message<span class="badge pull-right">42</span></a></li>
+						</ul>
 					</div>
 					
 					<!-- Personal Account managements -->
 					<button type="button" class="btn btn-primary" id = "accountManagement" style = "width:100%;">Account Mnagement</button>
 					<div id = "accountManagementLinks" style = "min-height:50px;background:#E5E5E5;max-width:97%;margin:auto;">
-					
+						<ul class="nav nav-pills nav-stacked">
+							<li><a href = "#">Edit Personal Information</a></li>							
+							<li><a href = "{% url 'logout' loginUser.id %}"><span class = "glyphicon glyphicon-off"></span> Logout</a></li>
+						</ul>
 					</div>					
 				</div>
 				
