@@ -22,7 +22,7 @@
 			</div>			
 			<div class = "row">
 				<!-- for other devices --->
-				<div class = "hidden-xs">
+				<div class = "hidden-xs" style = "margin:100px auto;max-width:40%;">
 					<form role="form" action = "{% url 'adminstration' %}" method = "POST" onsubmit = "return loginValidate()">
 						{% csrf_token %}
 						<div class="form-group">
@@ -39,7 +39,7 @@
 				
 				
 				<!--- for mobile phones -->
-				<div class = "visible-xs">
+				<div class = "visible-xs" style = "margin:50px auto;max-width:70%;">
 					<form role="form" action = "{% url 'adminstrationMobo' %}" method = "POST" onsubmit = "return loginMoboValidate()" >
 						{% csrf_token %}
 						<div class="form-group">
