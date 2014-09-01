@@ -23,6 +23,7 @@
 			<div class = "row">
 				<!-- for other devices --->
 				<div class = "hidden-xs" style = "margin:100px auto;max-width:40%;">
+					<p style = "text-align:center;color:red"><i>{{warning}}</i></p><p></p>
 					<form role="form" action = "{% url 'adminstration' %}" method = "POST" onsubmit = "return loginValidate()">
 						{% csrf_token %}
 						<div class="form-group">
@@ -40,6 +41,7 @@
 				
 				<!--- for mobile phones -->
 				<div class = "visible-xs" style = "margin:50px auto;max-width:70%;">
+					<p style = "text-align:center;color:red"><i>{{warning}}</i></p><p></p>
 					<form role="form" action = "{% url 'adminstrationMobo' %}" method = "POST" onsubmit = "return loginMoboValidate()" >
 						{% csrf_token %}
 						<div class="form-group">

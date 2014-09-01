@@ -12,21 +12,63 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.enums import TA_CENTER
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from emascouser.models import *
 
 #login for pproces in mobile 
 def adminstrationMobo(request):
+	allUsers = User.objects.all()
+	form = request.POST
 	
-	context = {}
-	return render(request, 'administration.html',context)
+	usernameList = form.getlist('username_mobile')
+	passwordList = form.getlist('password_mobile')
+	
+	tester = "not_match"
+	
+	for user in allUsers:
+		if user.username == usernameList[0] and user.password == passwordList[0] :
+			tester = "match"
+			break
+			
+	if tester == "not_match":
+		
+		warning = "Either password or username is incorrrect"
+		context = {'warning':warning}
+		return render(request, 'login.html',context)
+			
+	else:
+		
+		context = {}
+		return render(request, 'administration.html',context)
+	
 
 
 
 
 #login for pproces in other devices
 def adminstration(request):
+	allUsers = User.objects.all()
+	form = request.POST
 	
-	context = {}
-	return render(request, 'administration.html',context)
+	usernameList = form.getlist('username')
+	passwordList = form.getlist('password')
+	
+	tester = 0
+	
+	for user in allUsers:
+		if user.username == usernameList[0] and user.password == passwordList[0] :
+			tester = 1
+			break
+			
+	if tester == 0:
+		warning = "Either password or username is incorrrect"
+		
+		context = {'warning':warning}		
+		return render(request, 'login.html',context)
+			
+	else:
+		
+		context = {}
+		return render(request, 'administration.html',context)
 
 
 
