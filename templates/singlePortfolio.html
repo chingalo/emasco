@@ -13,7 +13,8 @@
 		<div class = "visible-xs">
 			<div >
 				<div class = "col-xs-12" style = "border-right:2px solid #F5F5F5;border-left:2px solid #F5F5F5;border-radius:10px;padding:2%;">
-					<p>Title : {{portfolio.title|title}}</p>					
+					<p>Title : {{portfolio.title|title}}</p>
+					<p>Submitted on : {{submitted}}</p>					
 					<button type="button" class="btn btn-primary" id = "portfolio_description_mobile" style = "width:100%;">What is about?</button>
 					<div id = "portfolio_description_details_mobile" style = "max-width:98%;margin:auto;;border:2px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;">
 						<p style = "max-width:95%;margin:auto;text-align:justify;">
@@ -94,6 +95,7 @@
 		<div class = "hidden-xs">
 			<div class = "col-md-7 col-sm-7 col-lg-7" >
 				<p>Title : {{portfolio.title|title}}</p>
+				<p>Submitted on : {{submitted}}</p>
 				<button type="button" class="btn btn-primary" id = "portfolio_description" style = "width:100%;">What is about?</button>
 				<div id = "portfolio_description_details" style = "max-width:98%;margin:auto;;border:2px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;">
 					<p style = "max-width:95%;margin:auto;text-align:justify;">

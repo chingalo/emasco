@@ -6,6 +6,7 @@ import json
 from django.core.mail import send_mail
 from random import randrange
 from datetime import datetime
+# time   str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
 from reportlab.pdfgen import canvas
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
@@ -21,7 +22,7 @@ def singlePortfolio(request, portfolio_id):
 	
 	portfolio = Portfolio.objects.get(id = portfolio_id)
 	slides = Gallery.objects.filter(portfolio = portfolio)
-	
-	context = {'portfolio':portfolio,'slides':slides}
+	submitted = portfolio.date_of_submission.strftime('%d-%m-%Y')
+	context = {'portfolio':portfolio,'slides':slides,'submitted':submitted}
 	return render(request,'singlePortfolio.html',context)
 
