@@ -1,0 +1,79 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Administration</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link rel="stylesheet" media='screen' href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet">
+		
+	</head>
+	
+	<body style = "max-width:95%;margin:auto;margin-top:1%;">
+		<!-- administration contents ---->
+	
+		<div class = "container-fluid">
+			<!---navigation bar for admiinistrtion   ---- >
+			<!--- welcome note and images -->
+			<div class = "row well" style = "padding:2%;">
+				<p>Images and images for login page in adminstration part comming sooon!!!</p>
+			</div>			
+			<div class = "row">
+				<!-- for other devices --->
+				<div class = "hidden-xs">
+					<form role="form" action = "{% url 'adminstration' %}" method = "POST" >
+						{% csrf_token %}
+						<div class="form-group">
+							<input type="text" class="form-control" id="adminstration_username" placeholder="Username" name = "username">
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" id="adminstration_password" placeholder="Password" name = "password" >
+						</div>
+						<div class="form-group">
+							<button type="submit" class="form-control btn btn-primary" >login</button>
+						</div>						
+					</form>					
+				</div>
+				
+				
+				<!--- for mobile phones -->
+				<div class = "visible-xs">
+					<form role="form" action = "{% url 'adminstrationMobo' %}" method = "POST" >
+						{% csrf_token %}
+						<div class="form-group">
+							<input type="text" class="form-control" id="adminstration_username_mobile" placeholder="Username" name = "username_mobile">
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" id="adminstration_password_mobile" placeholder="Password" name = "password_mobile" >
+						</div>
+						<div class="form-group">
+							<button type="submit" class="form-control btn btn-primary" >login</button>
+						</div>						
+					</form>
+				</div>
+				
+				
+			</div>
+		
+		</div>	
+	
+	
+		<!-- footer ----->
+		<div class = "container-fluid">
+			<div class = "row">			
+				<div class = "well" style = "text-align:center;">
+					<p>&copy; {% now "Y M " %}<br> all right reserved</p>
+				</div>
+			</div>
+		</div>
+		
+	
+	<!--- scripts ----->
+	<script src="{{STATIC_URL}}js/jquery.min.js"></script>
+	<script src="{{STATIC_URL}}js/bootstrap.min.js" type = "text/javascript"></script>
+	</body>
+
+</html>
+

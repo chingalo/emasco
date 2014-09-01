@@ -70,3 +70,14 @@ def contactUs(request):
 	
 	context = {'companyInfo':companyInfo}
 	return render(request,'contactus.html',context)
+	
+	
+	
+#handle administration
+def login(request):
+	
+	
+	context = {}
+	return render(request, 'login.html',context)	
+	
+	
