@@ -66,8 +66,8 @@
 					<button type="button" class="btn btn-primary" id = "messageMangement" style = "width:100%;">Messages</button>
 					<div id = "messageMangementLinks" style = "min-height:50px;background:#E5E5E5;max-width:97%;margin:auto;">
 						<ul class="nav nav-pills nav-stacked">							
-							<li><a href = "#">All Messages<span class="badge pull-right">42</span></a></li>
-							<li><a href = "#">Unread Message<span class="badge pull-right">42</span></a></li>
+							<li><a href = "{% url 'allMessages' loginUser.id %}">All Messages<span class="badge pull-right">42</span></a></li>
+							<li><a href = "{% url 'newMessages' loginUser.id %}">Unread Message<span class="badge pull-right">42</span></a></li>
 						</ul>
 					</div>
 					
@@ -83,7 +83,7 @@
 				
 				<!-- contents -->
 				<div class = "col-md-8 col-sm-8 col-lg-8 " style = "border-left:3px solid #E5E5E5;border-right:3px solid #E5E5E5; min-height:300px;border-radius:10px;margin-bottom:2%;">
-					<p>Contents for anagements</p>
+					<p>{% block adminstration_panel %}{% endblock %}</p>
 				</div>
 			</div>
 			

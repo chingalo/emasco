@@ -13,6 +13,7 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 
+from emascouser.models import *
 from contacts.models import *
 
 def contactMessage(request):
@@ -41,3 +42,44 @@ def contactMessage(request):
 	
 	
 	return HttpResponseRedirect("/")
+
+
+
+
+#view all messages
+def allMessages(request,user_id):
+	
+	loginUser = User.objects.get(id = user_id)
+	context = {'loginUser':loginUser,'status':"all"}
+	return render(request, 'message.html', context)
+
+
+
+
+#all unread messages
+def newMessages(request,user_id):
+	
+	loginUser = User.objects.get(id = user_id)
+	new_messages = CompanyMessage.objects.filter(message_status = "unread")
+	
+	context = {'loginUser':loginUser,'status':"unread",'new_messages':new_messages}
+	return render(request, 'message.html', context)
+
+
+
+
+
+#single message 
+
+def message(request,message_id,user_id):
+	loginUser = User.objects.get(id = user_id)
+	message = CompanyMessage.objects.get(id = message_id)
+	
+	context = {'loginUser':loginUser,'message':message}
+	return render(request,'singleMessage.html',context)
+	
+	
+	
+	
+
+

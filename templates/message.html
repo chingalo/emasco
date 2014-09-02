@@ -1,0 +1,26 @@
+{% extends "administration.html" %}
+{% block adminstration_panel %}
+
+
+<!-- for all messages to administration ----->
+{% if status == "all" %}
+<p>on all messages page</p>
+{% endif %}
+
+
+
+
+<!----- for unread messages to administration--->
+{% if status == "unread" %}
+
+<div >
+	<ul class="nav nav-pills nav-stacked">
+		{%for message in new_messages %}
+		<li><a href = "{% url 'message' message.id loginUser.id %}">{{message.subject|title}} &nbsp;::&nbsp; {{message.message|truncatechars:110}}</a></li>
+		{% endfor %}
+	</ul>
+</div>
+
+{% endif %}
+
+{% endblock %}
