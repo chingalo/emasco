@@ -5,20 +5,29 @@
 <div style = "">
 	<!--- message contents --->
 	<button type="button" class="btn btn-primary" id = "adminMessageButton" style = "width:100%;">Message Contents</button>
-	<div id = "adminMessageButtonContents" style = "min-height:50px;background:#E5E5E5;max-width:98%;margin:auto;padding:1%;">
-	<p>{{message.subject}}</p>
-	<p>{{message.message}}</p>
-	<p>{{message.date}}</p>
+	<div id = "adminMessageButtonContents" style = "min-height:50px;background:#E5E5E5;max-width:98%;margin:auto;padding:1%;text-align:justify;">
+		<p style = "text-align:center">From {{message.fullname}}</p>		
+		<p style = "padding:1%;border-top:2px solid black;border-radius:3px;">Subject : {{message.subject}}</p>
+		<p style = "padding:1%;border-bottom:2px solid black;border-radius:3px;">{{message.message}}</p>
+		<p style = "padding:1%;">Sent on : {{message.date}}</p>
 	</div>
 	
 	
 	<!--- sender contacts and infos -->
 	<button type="button" class="btn btn-primary" id = "senderinfoButtton" style = "width:100%;">Sender Infos and Contacts</button>
 	<div id = "senderinfoButttonDeatails" style = "min-height:50px;background:#E5E5E5;max-width:98%;margin:auto;padding:1%;">
-	<p>{{message.fullname}}</p>
-	<p>{{message.email}}</p>
-	<p>{{message.mobile_number}}</p>
-	<p>{{message.sender_sex}}</p>
+		<p>Full name : {{message.fullname}}</p>
+		{% if message.email == "" %}		
+		{% else %}
+		<p>E-mail : {{message.email}}</p>
+		{% endif %}
+		
+		{% if message.mobile_number == "" %}		
+		{% else %}
+		<p>mobile number : {{message.mobile_number}}</p>
+		{% endif %}
+		
+		<p>Sex : {{message.sender_sex}}</p>
 	</div>
 	
 	
