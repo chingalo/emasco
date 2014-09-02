@@ -46,12 +46,20 @@ def contactMessage(request):
 
 
 
+
 #view all messages
 def allMessages(request,user_id):
 	
 	loginUser = User.objects.get(id = user_id)
-	context = {'loginUser':loginUser,'status':"all"}
+	
+	allMessages = CompanyMessage.objects.all()
+	newMessages = CompanyMessage.objects.filter(message_status = "unread")
+	allmessagescount = len(allMessages)
+	newmessagecount = len(newMessages)
+	
+	context = {'allmessagescount':allmessagescount,'newmessagecount':newmessagecount,'loginUser':loginUser,'status':"all"}
 	return render(request, 'message.html', context)
+
 
 
 
@@ -60,9 +68,13 @@ def allMessages(request,user_id):
 def newMessages(request,user_id):
 	
 	loginUser = User.objects.get(id = user_id)
-	new_messages = CompanyMessage.objects.filter(message_status = "unread")
 	
-	context = {'loginUser':loginUser,'status':"unread",'new_messages':new_messages}
+	allMessages = CompanyMessage.objects.all()
+	newMessages = CompanyMessage.objects.filter(message_status = "unread")
+	allmessagescount = len(allMessages)
+	newmessagecount = len(newMessages)
+	
+	context = {'allmessagescount':allmessagescount,'newmessagecount':newmessagecount,'loginUser':loginUser,'status':"unread",'new_messages':newMessages}
 	return render(request, 'message.html', context)
 
 
@@ -75,7 +87,12 @@ def message(request,message_id,user_id):
 	loginUser = User.objects.get(id = user_id)
 	message = CompanyMessage.objects.get(id = message_id)
 	
-	context = {'loginUser':loginUser,'message':message}
+	allMessages = CompanyMessage.objects.all()
+	newMessages = CompanyMessage.objects.filter(message_status = "unread")
+	allmessagescount = len(allMessages)
+	newmessagecount = len(newMessages)
+	
+	context = {'allmessagescount':allmessagescount,'newmessagecount':newmessagecount,'loginUser':loginUser,'message':message}
 	return render(request,'singleMessage.html',context)
 	
 	

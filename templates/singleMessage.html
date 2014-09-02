@@ -1,19 +1,29 @@
 {% extends "administration.html" %}
 {% block adminstration_panel %}
 <!--- single message --->
-<!-- message sender_sex date fullname email mobile_number subject -->
 
 <div style = "">
 	<!--- message contents --->
-	
+	<button type="button" class="btn btn-primary" id = "adminMessageButton" style = "width:100%;">Message Contents</button>
+	<div id = "adminMessageButtonContents" style = "min-height:50px;background:#E5E5E5;max-width:98%;margin:auto;padding:1%;">
+	<p>{{message.subject}}</p>
+	<p>{{message.message}}</p>
+	<p>{{message.date}}</p>
+	</div>
 	
 	
 	<!--- sender contacts and infos -->
+	<button type="button" class="btn btn-primary" id = "senderinfoButtton" style = "width:100%;">Sender Infos and Contacts</button>
+	<div id = "senderinfoButttonDeatails" style = "min-height:50px;background:#E5E5E5;max-width:98%;margin:auto;padding:1%;">
+	<p>{{message.fullname}}</p>
+	<p>{{message.email}}</p>
+	<p>{{message.mobile_number}}</p>
+	<p>{{message.sender_sex}}</p>
+	</div>
+	
+	
 	
 </div>
 
-{{message}}<br>  
-{{message}}<br>
-{{message}}<br>
-{{message}}<br>
+
 {% endblock %}

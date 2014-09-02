@@ -13,6 +13,8 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from emascouser.models import *
+from contacts.models import *
+
 
 #login for pproces in mobile 
 def adminstrationMobo(request):
@@ -48,8 +50,13 @@ def adminstrationMobo(request):
 			loginUser = User.objects.get(username = usernameList[0])
 			loginUser.login_status = "login"
 			loginUser.save()
+			allMessages = CompanyMessage.objects.all()
+			newMessages = CompanyMessage.objects.filter(message_status = "unread")
+			allmessagescount = len(allMessages)
+			newmessagecount = len(newMessages)
 			
-			context = {'loginUser':loginUser,}
+			
+			context = {'newmessagecount':newmessagecount,'allmessagescount':allmessagescount,'loginUser':loginUser,}
 			return render(request, 'administration.html',context)
 	else:
 		context = {}
@@ -89,7 +96,13 @@ def adminstration(request):
 			loginUser.login_status = "login"
 			loginUser.save()
 			
-			context = {'loginUser':loginUser,}
+			allMessages = CompanyMessage.objects.all()
+			newMessages = CompanyMessage.objects.filter(message_status = "unread")
+			allmessagescount = len(allMessages)
+			newmessagecount = len(newMessages)
+			
+			
+			context = {'newmessagecount':newmessagecount,'allmessagescount':allmessagescount,'loginUser':loginUser,}
 			return render(request, 'administration.html',context)
 
 	else:
