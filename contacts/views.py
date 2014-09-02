@@ -54,10 +54,11 @@ def allMessages(request,user_id):
 	
 	allMessages = CompanyMessage.objects.all()
 	newMessages = CompanyMessage.objects.filter(message_status = "unread")
+	oldmessages = CompanyMessage.objects.filter(message_status = "read")
 	allmessagescount = len(allMessages)
 	newmessagecount = len(newMessages)
 	
-	context = {'allmessagescount':allmessagescount,'newmessagecount':newmessagecount,'loginUser':loginUser,'status':"all"}
+	context = {'newMessages':newMessages,'oldmessages':oldmessages,'allmessagescount':allmessagescount,'newmessagecount':newmessagecount,'loginUser':loginUser,'status':"all"}
 	return render(request, 'message.html', context)
 
 
@@ -86,6 +87,8 @@ def newMessages(request,user_id):
 def message(request,message_id,user_id):
 	loginUser = User.objects.get(id = user_id)
 	message = CompanyMessage.objects.get(id = message_id)
+	message.message_status = "read"
+	message.save()
 	
 	allMessages = CompanyMessage.objects.all()
 	newMessages = CompanyMessage.objects.filter(message_status = "unread")
