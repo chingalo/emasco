@@ -7,10 +7,10 @@
 <div >
 	<ul class="nav nav-pills nav-stacked">
 		{%for message in newMessages %}
-		<li style = "background:#BFBFBF;"><a href = "{% url 'message' message.id loginUser.id %}">{{message.subject|title}} &nbsp;::&nbsp; {{message.message|truncatechars:110}}</a></li>
+		<li style = "border-radius:7px;background:#E8e5F5"><a href = "{% url 'message' message.id loginUser.id %}">{{message.subject|title}} &nbsp;::&nbsp; {{message.message|truncatechars:110}}<br><i><span style = "color:#4D4D4D;">{{message.date}}</span></i></a></li>
 		{% endfor %}
 		{%for message in oldmessages %}
-		<li><a href = "{% url 'message' message.id loginUser.id %}">{{message.subject|title}} &nbsp;::&nbsp; {{message.message|truncatechars:110}}</a></li>
+		<li style = "border-radius:7px;"><a href = "{% url 'message' message.id loginUser.id %}">{{message.subject|title}} &nbsp;::&nbsp; {{message.message|truncatechars:110}}<br><i><span style = "color:#4D4D4D;">{{message.date}}</span></i></a></li>
 		{% endfor %}
 	</ul>
 </div>
@@ -25,7 +25,7 @@
 <div >
 	<ul class="nav nav-pills nav-stacked">
 		{%for message in new_messages %}
-		<li><a href = "{% url 'message' message.id loginUser.id %}">{{message.subject|title}} &nbsp;::&nbsp; {{message.message|truncatechars:110}}</a></li>
+		<li style = "border-radius:7px;"><a href = "{% url 'message' message.id loginUser.id %}">{{message.subject|title}} &nbsp;::&nbsp; {{message.message|truncatechars:110}}<br><i><span style = "color:#4D4D4D;">{{message.date}}</span></i></a></li>
 		{% endfor %}
 	</ul>
 </div>

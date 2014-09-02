@@ -47,14 +47,14 @@ def contactMessage(request):
 
 
 
-#view all messages
+#view all messages 
 def allMessages(request,user_id):
 	
 	loginUser = User.objects.get(id = user_id)
 	
 	allMessages = CompanyMessage.objects.all()
-	newMessages = CompanyMessage.objects.filter(message_status = "unread")
-	oldmessages = CompanyMessage.objects.filter(message_status = "read")
+	newMessages = CompanyMessage.objects.filter(message_status = "unread").order_by('-date')
+	oldmessages = CompanyMessage.objects.filter(message_status = "read").order_by('-date')
 	allmessagescount = len(allMessages)
 	newmessagecount = len(newMessages)
 	
@@ -71,7 +71,7 @@ def newMessages(request,user_id):
 	loginUser = User.objects.get(id = user_id)
 	
 	allMessages = CompanyMessage.objects.all()
-	newMessages = CompanyMessage.objects.filter(message_status = "unread")
+	newMessages = CompanyMessage.objects.filter(message_status = "unread").order_by('-date')
 	allmessagescount = len(allMessages)
 	newmessagecount = len(newMessages)
 	
