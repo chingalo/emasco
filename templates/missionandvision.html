@@ -9,10 +9,46 @@
 
 
 
-<div class = "container-fluid"  style = "min-height:200px;">
-	<div class = "row">
-		<p>emasco's Mission and vision page comming soon!!!</p>
+<div class = "container-fluid"  style = "width:95%;margin:auto;">
+	
+		<!-- mobile view ---->
+	<div class = "visible-xs">
+		<div class = "row">	
+			<div class = "col-xs">
+				<!--mission for website-->
+				<p>Our mission</p>
+				{% for mission in missions %}
+				<p style = "text-align:justify;">{{mission.description}}</p>
+				{% endfor %}
+				
+				<!-- vision for the website-->
+				<p>Our vision</p>
+				{% for vision in visions %}
+				<p style = "text-align:justify;">{{vision.description}}</p>
+				{% endfor %}
+			</div>				
+		</div>	
 	</div>
+	
+	<!-- for other divices---->
+	<div class = "hidden-xs"  >
+		<div class = "row">	
+			<div class = "col-md-8 col-sm-8 col-lg-8">
+				<!--mission for website-->
+				<p>Our mission</p>
+				{% for mission in missions %}
+				<p style = "text-align:justify;">{{mission.description}}</p>
+				{% endfor %}
+				
+				<!-- vision for the website-->
+				<p>Our vision</p>
+				{% for vision in visions %}
+				<p style = "text-align:justify;">{{vision.description}}</p>
+				{% endfor %}
+			</div>	
+			<div class = "col-md-4 col-sm-4 col-lg-4">image indicate mission and vision</div>	
+		</div>
+	</div>		
 </div>
 
 

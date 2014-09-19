@@ -8,10 +8,32 @@
 
 
 
-<div class = "container-fluid"  style = "min-height:200px;">
-	<div class = "row">
-		<p>Emasco'sservives page comming soon !!!!</p>
+<div class = "container-fluid"  style = "width:95%;margin:auto;">
+	<!-- heading for services offered by our team--->
+	
+	<!-- mobile view ---->
+	<div class = "visible-xs">
+		<div class = "row">	
+			<div class = "col-xs">
+				{% for service in services %}
+				<p>{{forloop.counter}} : {{service}}</p>
+				{% endfor %}
+			</div>				
+		</div>	
 	</div>
+	
+	<!-- for other divices---->
+	<div class = "hidden-xs"  >
+		<div class = "row">	
+			<div class = "col-md-8 col-sm-8 col-lg-8">
+				{% for service in services %}
+				<p>{{forloop.counter}} : {{service}}</p>
+				{% endfor %}
+			</div>	
+			<div class = "col-md-4 col-sm-4 col-lg-4">image indicate serverices offered</div>	
+		</div>
+	</div>
+	
 </div>
 
 

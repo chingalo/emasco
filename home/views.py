@@ -15,6 +15,8 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from emascouser.models import *
 from contacts.models import *
 from portfolio.models import *
+from services.models import *
+from missionVission.models import *
 
 
 #home pagae for emasco
@@ -29,7 +31,9 @@ def home(request):
 #services offered by emasco	
 def services(request):
 	
-	context = {}
+	services = Service.objects.all()
+	
+	context = {'services':services}
 	return render(request,'services.html',context)	
 
 
@@ -48,8 +52,10 @@ def portfolio(request):
 
 #emasco mission and vission
 def missionAndVision(request):
+	missions = Mission.objects.all()
+	visions = Vision.objects.all()
 	
-	context = {}
+	context = {'visions':visions,'missions':missions}
 	return render(request,'missionandvision.html',context)
 
 
