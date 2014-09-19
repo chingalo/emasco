@@ -21,6 +21,7 @@ class CompanyMessage(models.Model):
 	mobile_number = models.CharField(max_length = 256, blank = True)
 	subject = models.CharField(max_length = 256)
 	message = models.TextField(max_length = 20000)
+	occu[ation = models.CharField(max_length = 256)
 	message_status = models.CharField(max_length = 256, default = "unread")
 	sender_sex = models.CharField(max_length = 256, default = "Male")
 	date = models.DateTimeField(default=timezone.now)

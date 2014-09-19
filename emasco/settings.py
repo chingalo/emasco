@@ -56,6 +56,9 @@ INSTALLED_APPS = (
     'contacts',
     'portfolio',
     'administration',
+    'services',
+    'missionVission',
+    'aboutUs',
 )
 
 MIDDLEWARE_CLASSES = (
