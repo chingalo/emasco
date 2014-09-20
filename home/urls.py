@@ -8,7 +8,8 @@ urlpatterns = patterns('',
     url(r'^services$', views.services, name='services'),
     url(r'^portfolio$', views.portfolio, name='portfolio'),
     url(r'^mission-and-vision$', views.missionAndVision, name='missionAndVision'),
-    url(r'^core-team$', views.coreTeam, name='coreTeam'),
+    url(r'^team$', views.coreTeam, name='coreTeam'),
     url(r'^contact-us$', views.contactUs, name='contactUs'),
+    url(r'^about-us$', views.aboutus, name='aboutus'),
    
     )

@@ -16,6 +16,7 @@ from emascouser.models import *
 from contacts.models import *
 from portfolio.models import *
 from services.models import *
+from aboutUs.models import *
 from missionVission.models import *
 
 
@@ -78,6 +79,18 @@ def contactUs(request):
 	return render(request,'contactus.html',context)
 	
 	
+
+#handle about us page
+def aboutus(request):
+	
+	aboutus = AboutUs.objects.all()
+	
+	context = {'aboutus':aboutus}
+	return render(request, 'aboutus.html',context)
+	
+	
+
+
 	
 #handle administration
 def login(request):

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block pageContainer %}
+<!--- breadcrums --->
+<ol class="breadcrumb">
+	<li><a href="{% url 'home' %}">Home</a></li>
+	<li class = "active">About us</li>
+</ol>
+
+
+
+
+<div class = "container-fluid"  style = "width:95%;margin:auto;">
+	
+		<!-- mobile view ---->
+	<div class = "visible-xs">
+		<div class = "row">	
+			<div class = "col-xs">
+				<!--mission for website-->
+				<p>About us</p>
+				{% for about in aboutus %}
+				<p style = "text-align:justify;">{{about.description}}</p>
+				{% endfor %}			
+			</div>				
+		</div>	
+	</div>
+	
+	<!-- for other divices---->
+	<div class = "hidden-xs"  >
+		<div class = "row">	
+			<div class = "col-md-8 col-sm-8 col-lg-8">
+				<!--mission for website-->
+				<p>About us</p>
+				{% for about in aboutus %}
+				<p style = "text-align:justify;">{{about.description}}</p>
+				{% endfor %}				
+			</div>	
+			<div class = "col-md-4 col-sm-4 col-lg-4">image indicate about us <br> coming soon!!!</div>	
+		</div>
+	</div>		
+</div>
+
+
+{% endblock %}
