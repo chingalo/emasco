@@ -45,6 +45,7 @@ class Position(models.Model):
 #model for category for team of professional
 class TeamCategory(models.Model):
 	
+	team_member = models.ForeignKey('User',on_delete = models.CASCADE)
 	team_category = models.CharField(max_length = 256)
 	
 	def __unicode__(self):

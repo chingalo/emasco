@@ -10,11 +10,16 @@
 
 
 <!-- core team details ----->
-<div class = "container-fluid"  style = "min-height:200px; max-width:100%;margin:auto">
+<div class = "container-fluid"  style = "max-width:98%;margin:auto;">
+	
+	
+	{% if coreteams %}
+	<p style = ""><u>Our core team</u></p>
+	
 	{% for teammember in coreteams %}
-	<div class = "row">		
+	<div class = "row" style = "">		
 		<div class = "col-md-2 col-sm-4 col-lg-2 col-xs-4">
-			{% if teammember.username = "joseph" and teammember.pic = "yes" %}
+			{% if teammember.team_member.username = "joseph" and teammember.team_member.pic = "yes" %}
 			<img src = "{{STATIC_URL}}img/joseph.png" alt="" style="height: 100px; width:100%; border-radius:10px;" class = "visible-xs">
 			<img src = "{{STATIC_URL}}img/joseph.png" alt="" style="height: 150px;width:100%; border-radius:10px;" class = "hidden-xs" >
 			{% else %}
@@ -26,17 +31,52 @@
 			{% endif %}
 		</div>
 		<div class = "col-md-6 col-sm-6 col-lg-6 col-xs-8">
-			<P>Name : {{teammember.full_name}}</P>
-			<P>Position : {{teammember.position}}</P>			
+			<P>Name : {{teammember.team_member.full_name}}</P>
+			<P>Position : {{teammember.team_member.position}}</P>			
 		</div>
 		
 		<div class = "col-md-4 col-sm-2 col-lg-4">
-			<button type="button" class="btn btn-info" onclick = "window.location.href='{% url 'singleMember' teammember.id %}'" >More info</button>
+			<button type="button" class="btn btn-info" onclick = "window.location.href='{% url 'singleMember' teammember.team_member.id %}'" >More info</button>
 		</div>	
 	</div>
 	<hr>
 	
 	{% endfor %}
+	{% endif %}
+	
+		
+	<!--- for associate---->
+
+		{% if coreteams %}
+		<p style = "" >Our associate team</p>
+			
+		{% for teammember in associates %}
+		<div class = "row" >		
+			<div class = "col-md-2 col-sm-4 col-lg-2 col-xs-4">
+				{% if teammember.team_member.username = "joseph" and teammember.team_member.pic = "yes" %}
+				<img src = "{{STATIC_URL}}img/joseph.png" alt="" style="height: 100px; width:100%; border-radius:10px;" class = "visible-xs">
+				<img src = "{{STATIC_URL}}img/joseph.png" alt="" style="height: 150px;width:100%; border-radius:10px;" class = "hidden-xs" >
+				{% else %}
+				<!--- check for images of other users ---->
+				
+				
+				<img src = "{{STATIC_URL}}img/emascouser.png" alt="" style="height: 100px; width:100%; border-radius:10px;" class = "visible-xs">
+				<img src = "{{STATIC_URL}}img/emascouser.png" alt="" style="height: 150px;width:100%; border-radius:10px;" class = "hidden-xs" >
+				{% endif %}
+			</div>
+			<div class = "col-md-6 col-sm-6 col-lg-6 col-xs-8">
+				<P>Name : {{teammember.team_member.full_name}}</P>
+				<P>Position : {{teammember.team_member.position}}</P>			
+			</div>
+			
+			<div class = "col-md-4 col-sm-2 col-lg-4">
+				<button type="button" class="btn btn-info" onclick = "window.location.href='{% url 'singleMember' teammember.team_member.id %}'" >More info</button>
+			</div>	
+		</div>
+		<hr>
+	
+	{% endfor %}
+	{% endif %}
 </div>
 
 

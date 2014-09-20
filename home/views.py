@@ -64,9 +64,11 @@ def missionAndVision(request):
 
 #emasco core team	
 def coreTeam(request):
-	coreteams = User.objects.all()
 	
-	context = {'coreteams':coreteams}
+	coreteams = TeamCategory.objects.filter(team_category = 'core')
+	associates = TeamCategory.objects.filter(team_category = 'associate') 
+		
+	context = {'coreteams':coreteams,'associates':associates}
 	return render(request,'coreteam.html',context)	
 
 
