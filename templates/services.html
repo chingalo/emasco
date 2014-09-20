@@ -1,4 +1,14 @@
 {% extends "base.html" %}
+
+{% block header_banner %}
+<img src = "{{STATIC_URL}}img/our_services_banner.jpg" alt="" style="height: 150px;width:100%;" class = "hidden-xs" >
+{% endblock %}
+
+{% block header_banner_mobile %}
+<img src = "{{STATIC_URL}}img/our_services_banner.jpg" alt="" style="height: 100px; width:100%;" class = "visible-xs">
+{% endblock %}
+
+
 {% block pageContainer %}
 <!--- breadcrums --->
 <ol class="breadcrumb">
@@ -25,12 +35,15 @@
 	<!-- for other divices---->
 	<div class = "hidden-xs"  >
 		<div class = "row">	
+			<div class = "col-md-4 col-sm-4 col-lg-4">
+				<img src = "{{STATIC_URL}}img/services.JPG" class="img-rounded" alt="" style="width:100%;">
+			</div>	
 			<div class = "col-md-8 col-sm-8 col-lg-8">
+				<p>Services we provide:-</p>
 				{% for service in services %}
 				<p>{{forloop.counter}} : {{service}}</p>
 				{% endfor %}
-			</div>	
-			<div class = "col-md-4 col-sm-4 col-lg-4">image indicate serverices offered</div>	
+			</div>				
 		</div>
 	</div>
 	

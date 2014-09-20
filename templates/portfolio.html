@@ -1,4 +1,14 @@
 {% extends "base.html" %}
+
+{% block header_banner %}
+<img src = "{{STATIC_URL}}img/our_portfolio_banner.jpg" alt="" style="height: 150px;width:100%;" class = "hidden-xs" >
+{% endblock %}
+
+{% block header_banner_mobile %}
+<img src = "{{STATIC_URL}}img/our_portfolio_banner.jpg" alt="" style="height: 100px; width:100%; " class = "visible-xs">
+{% endblock %}
+
+
 {% block pageContainer %}
 <!--- breadcrums --->
 <ol class="breadcrumb">

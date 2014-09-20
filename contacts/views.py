@@ -23,8 +23,10 @@ def contactMessage(request):
 	name = form.getlist('fullName')
 	email = form.getlist('email')
 	mobilenumber = form.getlist('mobilenumber')
-	subjectsent= form.getlist('subject')
-	messagesent= form.getlist('message')
+	subjectsent = form.getlist('subject')
+	messagesent = form.getlist('message')
+	occupation = form.getlist('occupation')
+	sex = form.getlist('sex')
 	
 	message = CompanyMessage()	
 	message.fullname = name[0]
@@ -32,6 +34,8 @@ def contactMessage(request):
 	message.mobile_number = mobilenumber[0]
 	message.subject = subjectsent[0]
 	message.message = messagesent[0]
+	message.occupation = occupation[0]
+	message.sender_sex = sex[0]
 	message.save()
 	
 	#send emails

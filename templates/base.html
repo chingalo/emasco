@@ -11,16 +11,16 @@
     <link rel="stylesheet" media='screen' href="{{STATIC_URL}}css/bootstrap.min.css" rel="stylesheet">
 
   </head>
-  <body style = "max-width:97%;margin:auto;margin-top:1%;">
+  <body style = "max-width:97%;margin:auto;margin-top:1%;background:#F3F3F3;">
 	  
 	  
 	  
 	<!---- brands at top of site -----> 
 	<div class = "container-fluid" >
 		<!-- for other devices -->
-		<div class = "hidden-xs" style = "height:80px;">
+		<div class = "hidden-xs" style = "height: 150px">
 			<div class = "col-md-10 col-sm-10 col-lg-10">
-				still comming, brand name, images and other ........
+				{% block header_banner %}{% endblock %}
 			</div>					
 			<div class = "col-md-2 col-sm-2 col-lg-2">
 				<button type="button" onclick = "window.location.href='{% url 'login' %}'" class="btn btn-primary pull-right"  style = "width:100%;">Login</button>				
@@ -28,9 +28,9 @@
 		</div>
 		
 		<!-- for mobile phones -->
-		<div class = "visible-xs" style = "height:80px;">
+		<div class = "visible-xs" style = "height:100px;">
 			<div class = "col-xs-8">
-				still comming, brand name, images and other ........
+				{% block header_banner_mobile %}{% endblock %}
 			</div>					
 			<div class = "col-xs-4">
 				<button type="button" onclick = "window.location.href='{% url 'login' %}'" class="btn btn-primary pull-right"  style = "width:100%;">Login</button>				

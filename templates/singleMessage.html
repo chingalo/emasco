@@ -17,6 +17,7 @@
 	<button type="button" class="btn btn-primary" id = "senderinfoButtton" style = "width:100%;">Sender Infos and Contacts</button>
 	<div id = "senderinfoButttonDeatails" style = "min-height:50px;background:#E5E5E5;max-width:98%;margin:auto;padding:1%;">
 		<p>Full name : {{message.fullname}}</p>
+		<p>Occuaption : {{message.occupation}}</p>
 		{% if message.email == "" %}		
 		{% else %}
 		<p>E-mail : {{message.email}}</p>
@@ -27,7 +28,7 @@
 		<p>mobile number : {{message.mobile_number}}</p>
 		{% endif %}
 		
-		<p>Sex : {{message.sender_sex}}</p>
+		<p>Sex : {{message.sender_sex}}</p>		
 	</div>
 	
 	

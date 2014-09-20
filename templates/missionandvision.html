@@ -1,4 +1,14 @@
 {% extends "base.html" %}
+
+{% block header_banner %}
+<img src = "{{STATIC_URL}}img/vision_mission_banner.png" alt="" style="height: 150px;width:100%;" class = "hidden-xs" >
+{% endblock %}
+
+{% block header_banner_mobile %}
+<img src = "{{STATIC_URL}}img/vision_mission_banner.png" alt="" style="height: 100px; width:100%;" class = "visible-xs">
+{% endblock %}
+
+
 {% block pageContainer %}
 <!--- breadcrums --->
 <ol class="breadcrumb">
@@ -33,21 +43,37 @@
 	<!-- for other divices---->
 	<div class = "hidden-xs"  >
 		<div class = "row">	
-			<div class = "col-md-8 col-sm-8 col-lg-8">
+			<div class = "col-md-6 col-sm-6 col-lg-6">
 				<!--mission for website-->
 				<p>Our mission</p>
 				{% for mission in missions %}
 				<p style = "text-align:justify;">{{mission.description}}</p>
 				{% endfor %}
+			</div>	
+			<div class = "col-md-6 col-sm-6 col-lg-6">				
+				<p>Our vision</p>
+				{% for vision in visions %}
+				<p style = "text-align:justify;">{{vision.description}}</p>
+				{% endfor %}
+			</div>
+			<div class = "col-md-4 col-sm-4 col-lg-4">
 				
-				<!-- vision for the website-->
+			</div>	
+		</div>
+		
+		<!-- vision for the website
+		<div class = "row">	
+			<div class = "col-md-8 col-sm-8 col-lg-8">				
 				<p>Our vision</p>
 				{% for vision in visions %}
 				<p style = "text-align:justify;">{{vision.description}}</p>
 				{% endfor %}
 			</div>	
-			<div class = "col-md-4 col-sm-4 col-lg-4">image indicate mission and vision</div>	
-		</div>
+			<div class = "col-md-4 col-sm-4 col-lg-4">
+				
+			</div>	
+		</div>]
+		-->
 	</div>		
 </div>
 

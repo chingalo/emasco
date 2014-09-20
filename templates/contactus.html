@@ -1,4 +1,15 @@
 {% extends "base.html" %}
+
+
+{% block header_banner %}
+<img src = "{{STATIC_URL}}img/contactus_banner .jpg" alt="" style="height: 150px;width:100%;" class = "hidden-xs" >
+{% endblock %}
+
+{% block header_banner_mobile %}
+<img src = "{{STATIC_URL}}img/contactus_banner .jpg" alt="" style="height: 100px; width:100%; "class = "visible-xs">
+{% endblock %}
+
+
 {% block pageContainer %}
 <!--- breadcrums --->
 <ol class="breadcrumb">
@@ -56,7 +67,11 @@
 							<input type = "text" id = "contact_mobile_number_mobile" name = "mobilenumber" class = "form-control" placeholder = "Your mobile number"/>
 						</div>
 						<div class = "form-group">
-							<input type = "text" id = "occupation_mobile" name = "ocupation" class = "form-control" placeholder = "Your Occupation"/>
+							<input type = "text" id = "occupation_mobile" name = "occupation" class = "form-control" placeholder = "Your Occupation"/>
+						</div>
+						<div class = "form-group"><label>Sex : &nbsp;&nbsp;&nbsp;</label>
+							<input type="radio" name="sex" id="sex-male" value="Male" checked> Male &nbsp;&nbsp;&nbsp;
+							<input type="radio" name="sex" id="sex-female" value="Female" > Female	
 						</div>
 						<div class = "form-group">
 							<input type = "text" id = "contact_subject_mobile" name = "subject" class = "form-control" placeholder = "Your message subject"/>
@@ -117,11 +132,15 @@
 						<input type = "text" id = "contact_mobile_number" name = "mobilenumber" class = "form-control" placeholder = "Your mobile number"/>
 					</div>
 					<div class = "form-group">
-							<input type = "text" id = "occupation" name = "ocupation" class = "form-control" placeholder = "Your Occupation"/>
-						</div>
-					<div class = "form-group">
-						<input type = "text" id = "contact_subject" name = "subject" class = "form-control" placeholder = "Your message subject"/>
+							<input type = "text" id = "occupation" name = "occupation" class = "form-control" placeholder = "Your Occupation"/>
 					</div>
+					<div class = "form-group"><label>Sex : &nbsp;&nbsp;&nbsp;</label>
+						<input type="radio" name="sex" id="sex-male" value="Male" checked> Male &nbsp;&nbsp;&nbsp;
+						<input type="radio" name="sex" id="sex-female" value="Female" > Female	
+					</div>	
+					<div class = "form-group">						
+						<input type = "text" id = "contact_subject" name = "subject" class = "form-control" placeholder = "Your message subject"/>
+					</div>									
 					<div class = "form-group">
 						<textarea id= "conatct_message" rows = "6" placeholder = "Your message" name = "message" class = "form-control"></textarea>
 					</div>

@@ -1,4 +1,12 @@
 {% extends "base.html" %}
+
+{% block header_banner %}
+<img src = "{{STATIC_URL}}img/about_us_banner.png" alt="" style="height: 150px;width:100%; border-radius:10px;" class = "hidden-xs" >
+{% endblock %}
+
+{% block header_banner_mobile %}
+<img src = "{{STATIC_URL}}img/about_us_banner.png" alt="" style="height: 100px; width:100%; border-radius:10px;" class = "visible-xs">
+{% endblock %}
 {% block pageContainer %}
 <!--- breadcrums --->
 <ol class="breadcrumb">
@@ -39,7 +47,7 @@
 				<div  id = "history_details">
 					<div style = "border-radius:10px;border:1px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;">
 						{%if singleMember.user_history%}
-						<p>singleMember.user_history</p>
+						<p>{{singleMember.user_history}}</p>
 						
 						{% else %}
 						<p>Cruently {{singleMember}} has no history</p>
@@ -53,7 +61,7 @@
 				<!-- details for Experiance -->
 				<div  id = "experiance_details">
 					<div style = "border-radius:10px;border:1px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;">												
-						<p>experiance_details</p>
+						<p>Coming soon</p>
 					</div>				
 				</div>
 				
@@ -104,7 +112,7 @@
 					<!-- details for Experiance-->
 					<div  id = "experiance_details_mobile">
 						<div style = "border-radius:10px;border:1px solid #F5F5F5;background: #F5F5F5;padding:1%; min-height:70px;">
-							<p>experiance_details</p>
+							<p>Coming soon</p>
 						</div>					
 					</div>
 					
