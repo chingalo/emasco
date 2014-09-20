@@ -8,6 +8,7 @@ function sendContactMessageMobile(){
 	fullname = document.getElementById('contact_full_name_mobile').value;
 	email = document.getElementById('contact_email_mobile').value;
 	mobilenumber = document.getElementById('contact_mobile_number_mobile').value;
+	occupation = document.getElementById('occupation_mobile').value;
 	subject = document.getElementById('contact_subject_mobile').value;
 	message = document.getElementById('conatct_message_mobile').value;
 	
@@ -32,7 +33,11 @@ function sendContactMessageMobile(){
 			return false;
 			}
 		}
-		
+	if (occupation == ""){
+		alert("fill your Occupation");
+		return false;
+		}
+			
 	if (subject == ""){
 		alert("fill subject for your message");
 		return false;
@@ -50,7 +55,8 @@ function sendContactMessageMobile(){
 function sendContactMessage(){
 	fullname = document.getElementById('contact_full_name').value;
 	email = document.getElementById('contact_email').value;
-	mobilenumber = document.getElementById('contact_mobile_number').value;
+	mobilenumber = document.getElementById('contact_mobile_number').value;	
+	occupation = document.getElementById('occupation').value;	
 	subject = document.getElementById('contact_subject').value;
 	message = document.getElementById('conatct_message').value;
 	
@@ -74,6 +80,11 @@ function sendContactMessage(){
 			document.getElementById('contact_email').focus();
 			return false;
 			}
+		}
+			
+	if (occupation == ""){
+		alert("fill your Occupation");
+		return false;
 		}
 		
 	if (subject == ""){
